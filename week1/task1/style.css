@@ -1,7 +1,89 @@
 * {
   margin: 0;
   padding: 0;
+  /* text-decoration: none;
+  list-style: none;
+  box-sizing: border-box; */
+  color: black;
 }
+
+a :hover {
+  color: rgb(204, 204, 204);
+}
+
+#nav-menu-items :hover {
+  color: grey;
+}
+
 body {
   font-family: "Rubik", sans-serif;
+}
+header nav {
+  height: 80px;
+}
+#logo {
+  float: left;
+  line-height: 100px;
+  margin: 0 100px 0 100px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 50px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  font-family: "Rubik", sans-serif;
+
+  font-size: 10px;
+  letter-spacing: 0em;
+  font-family: brandon-grotesque;
+  font-style: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin: 50px auto;
+}
+
+#main-img {
+  display: inline;
+  float: left;
+}
+#main-message {
+  float: right;
+  margin-top: 100px;
+  margin-right: 50px;
+
+  font-size: 13px;
+}
+
+#social-links {
+  margin-left: calc(100% - 53%);
+  margin-top: 500px;
+}
+
+.footer-links {
+  margin: 50px 0 0 0;
+
+  /* font-family: "Rubik", sans-serif; */
+
+  font-size: 8px;
+  letter-spacing: 0.14em;
+
+  font-style: normal;
+
+  font-family: brandon-grotesque;
+  font-weight: initial;
+}
+
+.footer-links :hover {
+  color: gray;
 }
