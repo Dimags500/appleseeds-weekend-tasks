@@ -4,14 +4,15 @@
 }
 
 .img {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   margin: 50px auto 30px auto;
 }
 
 body {
   color: #444;
-  font-size: 10px;
+  font-size: 20px;
+  font-weight: lighter;
   font-weight: normal;
   text-align: center;
   width: 100%;
@@ -20,14 +21,21 @@ body {
 
 .not-found--links {
   margin-top: 25px;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: bolder;
 }
 
+#words1 {
+  margin-bottom: 55px;
+}
+
 .not-found li {
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 a {
   text-decoration: none;
+  font-weight: lighter;
+
+  font-size: 16px;
 }
