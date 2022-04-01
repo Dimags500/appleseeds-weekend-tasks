@@ -1,0 +1,10 @@
+:root {
+  --font-size-1: 10px;
+  --font-size-2: 12px;
+  --font-size-small: 8px;
+
+  /* font-family */
+
+  --text-color-ligth: white;
+  --text-color-dark: black;
+}
