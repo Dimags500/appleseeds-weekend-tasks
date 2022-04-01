@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 #pages {
@@ -22,12 +23,23 @@ li {
 
 /*Page 1*/
 
+
+
+
 /*Navbar*/
 
+
 #navbar {
+ 
   display: flex;
   justify-content: space-between;
   font-size: var(--font-size-2);
+
+ 
+
+
+
+
 }
 #models-menu {
   display: flex;
@@ -52,7 +64,7 @@ li {
 }
 
 #page1 .performance-icons1 {
-  margin-top: 60vh;
+  margin-top: 19rem;
 }
 
 #page1 .performance-icons1 ul {
@@ -134,8 +146,13 @@ li {
   display: flex;
   color: var(--text-color-ligth);
 
-  padding: 30px;
+  /* padding: 30px; */
+
+  margin-top: 18rem;
+
 }
+
+
 
 #page3 #content2 {
   display: flex;
@@ -144,7 +161,7 @@ li {
 }
 
 #page3 #content2 #info {
-  width: 60vh;
+  width: 60%;
   font-size: var(--font-size-1);
 }
 
