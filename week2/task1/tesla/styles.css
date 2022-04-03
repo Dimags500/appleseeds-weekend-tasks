@@ -7,9 +7,9 @@
 
 #pages {
   background-color: aqua;
-  width: 100%;
   max-width: 1200px;
   height: 100vh;
+  font-size: 16px;
 }
 
 #navbar a {
@@ -146,6 +146,10 @@ background-color: var(--text-color-ligth);
 
 #page2 #conten2 #page2-btns a {
   text-decoration: none;
+}
+
+#page2 #conten2 #page2-btns #order-now {
+
 }
 
 
