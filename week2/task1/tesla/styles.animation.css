@@ -1,0 +1,129 @@
+
+
+.performance-icons1 li:nth-child(odd){
+
+    transition: all 1s  ;
+    animation-name: performance-icons1-animation ;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+
+}
+
+.performance-icons1 li:nth-child(even){
+
+    transition: all 2s ease ;
+    animation-name: performance-icons1-animation ;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+
+}
+
+
+.performance-icons li:nth-child(odd){
+
+    transition: all 1s  ;
+    animation-name: performance-icons1-animation ;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+
+}
+
+.performance-icons li:nth-child(even){
+
+    transition: all 2s ease ;
+    animation-name: performance-icons1-animation ;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+
+}
+
+
+
+
+
+
+
+
+@keyframes performance-icons1-animation{
+
+    form{
+    }
+    to{
+        margin-top: -3rem;
+    }
+}
+
+
+
+/*page 2*/
+
+
+#content2 #articles {
+
+
+    transition: all 1s ;
+    animation-name:page2-content2-articles-load ;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+
+
+ #page2-btns  {
+    
+    transition: all 1s ;
+    animation-name:page2-content2-articles-load ;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+
+
+
+@keyframes page2-content2-articles-load {
+
+    to{
+        transform: translateY(-40px);
+    }
+
+}
+
+
+#page3 #content2 #info {
+    transition: all 1s ;
+    animation-name:page3-content2-animation-load ;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+
+
+ #order-btns {
+    transition: all 1s ;
+    animation-name:page3-content2-animation-load ;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes page3-content2-animation-load {
+
+
+    form{
+        margin-top: -5rem;
+    }
+
+    to{
+        margin-top: -1rem;
+    }
+}
+
+

@@ -8,6 +8,7 @@
 #pages {
   background-color: aqua;
   width: 100%;
+  max-width: 1200px;
   height: 100vh;
 }
 
@@ -19,6 +20,25 @@
 li {
   list-style: none;
   padding: 2vh;
+}
+
+
+
+/*message stiiky*/
+
+#message{
+  position: fixed;
+  text-align: end;
+  background-color:aliceblue;
+  
+  padding: 10px;
+  text-align: center;
+bottom: 20px;
+right:2vw;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 /*Page 1*/
@@ -72,6 +92,21 @@ li {
   justify-content: center;
 }
 
+#page1 #item4{
+
+  border: 1px white ;
+  border-radius: 25px;
+  border-style:groove;
+  font-size: var(--font-size-small);
+  border-collapse:separate;
+}
+
+#page1 #item4:hover{
+
+color: var(--text-color-dark);
+background-color: var(--text-color-ligth);
+}
+
 /*Page 2*/
 
 #page2 {
@@ -87,7 +122,7 @@ li {
 #conten1 {
 }
 
-#content2 {
+#page2 #content2 {
   margin-top: 5vh;
   color: var(--text-color-dark);
   display: flex;
@@ -95,21 +130,25 @@ li {
   justify-content: space-between;
 }
 
-#content2 article {
+#page2 #content2 article {
   margin-top: 2vh;
   font-size: var(--font-size-1);
 }
 
-#conten2 #btns {
+#page2  #page2-btns {
   color: var(--text-color-dark);
 }
 
-#conten2 #btns {
-  border: 2px red solid;
+#page2  #page2-btns a {
+  text-decoration: none;
+  
 }
 
-#conten2 #btns {
+#page2 #conten2 #page2-btns a {
+  text-decoration: none;
 }
+
+
 
 #conten2 a {
   text-decoration: none;
