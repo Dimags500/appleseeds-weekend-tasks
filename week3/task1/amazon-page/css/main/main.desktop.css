@@ -54,7 +54,9 @@ color: gray;
 
 }
 
-
+#sidebar a{
+text-decoration: none;
+}
 
 #sidebar-add-to-list-btn {
     margin-top: 20px;
@@ -120,13 +122,13 @@ color: gray;
 }
 
 
-/* info*/
+/*Main info*/
 
 
 #info{
 
     margin-top: 100px;
-    grid-column: 3/7 ;
+    grid-column: 3/6 ;
     grid-row: 1/4;
 
     padding-left: 2rem;
@@ -136,8 +138,7 @@ color: gray;
 
 #buy-section{
 
-    height: 500px;
-
+ 
 
 }
 
@@ -158,4 +159,86 @@ border: 1px solid gray;
     color: red;
     border-bottom: none;
     border-top: 3px solid red;
+}
+
+/*Main Price-section*/
+
+#price-section a{
+    text-decoration: none;
+    color: blue;
+}
+#price-section {
+
+    background-color: aliceblue;
+    border: 1px solid gray;
+    height: 500px;
+    display: flex;
+
+}
+
+#price-section li {
+ list-style: none;
+ margin-bottom: 10px;
+}
+
+
+#price-section {
+    padding: 10px;
+}
+
+#price-section #right {
+    align-self: center;
+    padding-left: 15px;
+}
+
+#price-section #right li {
+    padding-top: 10px;
+    text-align: left;
+
+}
+
+#btn-add-to-cart {
+    background-color: yellow;
+
+}
+#btn-buy-now{
+    background-color: orange;
+
+}
+
+
+/*more-buying-choices*/
+
+#more-buying-choices {
+    background-color: whitesmoke;
+    height: 12vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#more-buying-choices a {
+    text-decoration: none;
+    color:blue;
+}
+
+#more-buying-choices div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+}
+
+#more-buying-choices div:nth-child(2) a:nth-child(2){
+    background-color: gainsboro;
+    color: black;
+    padding: 5px 50px ;
+
+    border: 1px solid gray;
+    border-radius: 12px;
+
+    margin-right: 20px;
+    
+
 }

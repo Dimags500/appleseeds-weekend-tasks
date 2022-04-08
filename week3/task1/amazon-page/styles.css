@@ -3,3 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+
+.price-red {
+    color: red;
+}
+.color-green{
+    color: green;
+}
+
+
+.btn-type-1 {
+    padding: 7px 50px;
+    border: none ;
+    border-radius: 15px;
+}
