@@ -1,0 +1,17 @@
+
+/* catigory-pagination*/
+
+#catigory-pagination {
+    font-size: var(--font-size-1);
+    margin-bottom: 10px;
+}
+
+#stars {
+    color: var( --orange-color);
+}
+
+
+/* Main Grid */
+
+.grid {
+}

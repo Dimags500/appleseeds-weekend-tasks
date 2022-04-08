@@ -51,12 +51,9 @@
 #subnav2{
    background-color: var( --light-gray-color);
    border-bottom: 1px solid gray;
-
    font-size: var(--font-size-1);
 
 } 
-
-
 #subnav2 ul li a {
 
     color: black ;
@@ -68,8 +65,24 @@
 
 #subnav2 ul li {
     padding: 10px;
+    border: 2px solid var(--light-gray-color);
 }
 
 #subnav2 ul li:hover{
     border-bottom: 2px solid var(--orange-color);
 }
+
+
+
+
+
+
+/* kindle-add */
+
+#kindle-add{
+    display: flex;
+    justify-content: center;
+
+}
+
+

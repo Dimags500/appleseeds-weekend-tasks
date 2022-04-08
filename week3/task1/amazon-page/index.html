@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./globals.css">
     <link rel="stylesheet" href="./css/navbar/navbar.desktop.css">
-    <link rel="stylesheet" href="./css/subnav/subnav.desktop.css">
+    <link rel="stylesheet" href="./css/header/header.desktop.css">
+    <link rel="stylesheet" href="./css/main/main.desktop.css">
     <!-- <link rel="stylesheet" media="screen and (max-with:500px)" href="./css/navbar/navbar.mabile.css"> -->
 
     <title>Amamzon Page</title>
@@ -58,50 +59,82 @@
 
     </nav>
 
-
-    <div class="subnav " id="subnav1">
-
-        <ul>
-            <li><a href=""><i class="fa-solid fa-bars"></i> All</a></li>
-            <li><a href="">Today's Deals</a></li>
-            <li><a href="">Customer Service</a></li>
-            <li><a href="">Registry</a></li>
-            <li><a href="">Gift Cards</a></li>
-            <li><a href="">Sell</a></li>
-            <li><a href="">Local Delivery in Israel</a></li>
-
-
-        </ul>
-
-    </div>
-
-    <div class="subnav" id="subnav2">
-
-        <ul>
-            <li>
-                <a href="">Books</a>
-            </li>
-
-            <li><a href="">Advanced Search</a></li>
-            <li><a href="">New Releases</a></li>
-            <li><a href="">Best Sellers & More</a></li>
-            <li><a href="">Children's Book</a></li>
-            <li><a href="">Textbooks</a></li>
-
-            <li><a href="">Textbooks Rentals</a></li>
-            <li><a href="">Best Books of the Month</a></li>
-
-
-        </ul>
-
-    </div>
-
     <header>
+
+
+        <section class="subnav " id="subnav1">
+
+            <ul>
+                <li><a href=""><i class="fa-solid fa-bars"></i> All</a></li>
+                <li><a href="">Today's Deals</a></li>
+                <li><a href="">Customer Service</a></li>
+                <li><a href="">Registry</a></li>
+                <li><a href="">Gift Cards</a></li>
+                <li><a href="">Sell</a></li>
+                <li><a href="">Local Delivery in Israel</a></li>
+
+
+            </ul>
+
+        </section>
+
+        <section class="subnav" id="subnav2">
+
+            <ul>
+                <li>
+                    <a href="">Books</a>
+                </li>
+
+                <li><a href="">Advanced Search</a></li>
+                <li><a href="">New Releases</a></li>
+                <li><a href="">Best Sellers & More</a></li>
+                <li><a href="">Children's Book</a></li>
+                <li><a href="">Textbooks</a></li>
+
+                <li><a href="">Textbooks Rentals</a></li>
+                <li><a href="">Best Books of the Month</a></li>
+
+
+            </ul>
+
+        </section>
+
+
+        <section id="kindle-add">
+            <div> <img src="./assets/img/ads/XCM_CUTTLE_1351597_1786068_US_650x45_en_US._CB645630042_.jpg" alt=""></div>
+        </section>
+
 
     </header>
 
     <main>
 
+        <div class="grid">
+            <section id="catigory-pagination">
+                <div>
+                    Books &nbsp; &#10093; &nbsp; Computers & Technology &nbsp; &#10093; &nbsp; Programming
+                </div>
+            </section>
+
+            <section id="item-title">
+                <h1>Clean Code: A Handbook of Agile Software Craftsmanship <span>1st Edition</span></h1>
+                <div> by <a href="">Robert C. Martin </a>&nbsp;
+                    <i class="fa-solid fa-angle-down" style="color: black;"></i>
+                    <span>(Author)</span>
+                </div>
+                <div id="stars">
+                    <!-- &#11088;
+                &#11088;
+                &#11088;
+                &#11088; -->
+
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                        class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i> &nbsp; <i class="fa-solid fa-angle-down"
+                        style="color: black;"></i> <a href="">3,645 ratings</a>
+                </div>
+            </section>
+        </div>
     </main>
 
 </body>
