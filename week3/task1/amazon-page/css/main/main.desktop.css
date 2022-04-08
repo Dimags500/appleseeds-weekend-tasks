@@ -39,6 +39,20 @@ color: gray;
     list-style: none;
 }
 
+#sidebar-add-to-list-btn {
+    margin: 15px 0 15px 0 ;
+}
+
+
+#sidebar-add-to-list-btn a {
+    text-decoration: none;
+    padding: 5px 213px 10px 5px;
+    background-color: whitesmoke;
+    color: black;
+    border: 1px solid gray;
+
+
+}
 
 #sidebar-bottom-adds{
 
