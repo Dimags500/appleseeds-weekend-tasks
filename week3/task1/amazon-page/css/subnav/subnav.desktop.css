@@ -1,0 +1,75 @@
+
+/* Subnavs */
+
+.subnav  a {
+    text-decoration: none;
+}
+
+.subnav ul  {
+    display: flex;
+}
+
+.subnav ul li {
+    list-style: none;
+    padding: 5px;
+}
+
+
+
+
+/* Sub nav1 */
+#subnav1{
+    background-color: var(--light-blue-color);
+    color: var( --praimary-color) ;
+    padding: 5px;
+    font-size: var(--font-size-2);
+
+} 
+
+#subnav1 ul li {
+    margin-right: 5px;
+}
+
+#subnav1 ul li a {
+    color: var( --praimary-color);
+    padding: 5px;
+
+}
+
+
+
+#subnav1 ul li a:hover{
+    border: 1px var(--praimary-color) solid;
+}
+
+
+
+
+
+/* Sub nav 2*/
+
+#subnav2{
+   background-color: var( --light-gray-color);
+   border-bottom: 1px solid gray;
+
+   font-size: var(--font-size-1);
+
+} 
+
+
+#subnav2 ul li a {
+
+    color: black ;
+}
+
+#subnav2 ul li:nth-child(1){
+    font-weight: bold;
+}
+
+#subnav2 ul li {
+    padding: 10px;
+}
+
+#subnav2 ul li:hover{
+    border-bottom: 2px solid var(--orange-color);
+}

@@ -1,0 +1,27 @@
+
+
+#navabr{
+    
+display: flex;
+justify-content: space-around;
+
+color: var(--praimary-color);
+background-color: var( --dark-blue-color);
+
+
+}
+
+.nav-item a{
+    text-decoration: none;
+    color: var(--praimary-color);
+}
+
+.nav-item {
+
+    padding: 10px;
+    
+}
+
+
+
+
