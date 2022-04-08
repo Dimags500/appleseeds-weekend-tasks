@@ -6,6 +6,11 @@
     margin-bottom: 10px;
 }
 
+
+#edition{
+color: gray;
+}
+
 #stars {
     color: var( --orange-color);
 }
@@ -14,4 +19,54 @@
 /* Main Grid */
 
 .grid {
+}
+
+
+
+/*Main sidebar*/
+
+#item-img{
+
+    width: 30%;
+
+}
+
+#sidebar-socials ul  {
+    display: flex;
+}
+#sidebar-socials ul li {
+    margin-right: 5px;
+    list-style: none;
+}
+
+
+#sidebar-bottom-adds{
+
+    width: 30%;
+    height: 150px;
+
+    border: 4px solid gray;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+#sidebar-bottom-adds a {
+    text-decoration: none;
+
+}
+
+#sidebar-bottom-adds img {
+    width: 180px;
+}
+
+#sidebar-bottom-adds-btn {
+
+    border: 1px solid gray;
+    padding: 7px 50px;
+    border-radius: 12px;
 }
