@@ -4,6 +4,12 @@ main{
 
 }
 
+body {
+    overflow-x: hidden; 
+
+
+  }
+
 /* --------------------------------------------------Main Grid */
 
 .grid {
@@ -11,6 +17,7 @@ main{
     display: grid;
     grid-template-columns:  100%;
     grid-template-rows:  repeat(4 ,0.3fr );
+
 
     
 
@@ -88,6 +95,8 @@ grid-row: 1 ;
     display: contents;
     display: flex;
     flex-direction: column;
+
+    margin: 10px;
 
 }
 
