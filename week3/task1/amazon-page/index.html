@@ -11,8 +11,14 @@
     <link rel="stylesheet" href="./css/navbar/navbar.desktop.css">
     <link rel="stylesheet" href="./css/header/header.desktop.css">
     <link rel="stylesheet" href="./css/main/main.desktop.css">
+
     <link rel="stylesheet" media="screen and (max-width:960px)" href="./css/main/main.tablet.css">
-    <link rel="stylesheet" media="screen and (max-with:500px)" href="./css/navbar/navbar.mabile.css">
+    <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css//main/main.mobile.css" />
+
+
+
+
+
 
     <title>Amamzon Page</title>
 </head>
@@ -26,14 +32,14 @@
                 <i class="fa-solid fa-location-dot"></i> <strong>Israel </strong>
             </a>
         </div>
-        <div class="nav-item">
+        <div class="nav-item" id="serch-bar">
             <select id="books">
                 <option value="All">All Deparments</option>
                 <option value="Art">Art</option>
                 <option value="Deals">Deals</option>
                 <option value="Books" selected>Books</option>
-                <input type="text" placeholder="Search..">
-                <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" placeholder="Search.." id="search">
+                <button type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </select>
 
         </div>
@@ -55,6 +61,10 @@
 
             </a>
 
+        </div>
+
+        <div class="nav-item">
+            <a href="" id="cart"> <i class="fa-solid fa-cart-shopping " style="font-size: 20px;"></i></a>
         </div>
 
 
@@ -127,11 +137,6 @@
                     <span>(Author)</span>
                 </div>
                 <div id="stars">
-                    <!-- &#11088;
-                &#11088;
-                &#11088;
-                &#11088; -->
-
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
                         class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star-half-stroke"></i> &nbsp; <i class="fa-solid fa-angle-down"

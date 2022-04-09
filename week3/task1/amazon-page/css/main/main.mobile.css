@@ -1,16 +1,100 @@
 
-#navbar{
-    width: 100px;
+
+
+main{
 }
 
 /* --------------------------------------------------Main Grid */
 
 .grid {
 
-    margin: 1rem;
     display: grid;
-    grid-template-columns: repeat(1fr);
-    grid-template-rows: repeat(8 ,1fr);
+    grid-template-columns:  100%;
+    grid-template-rows:  repeat(4 ,0.5fr );
+    
 
-    background-color: aquamarine;
+
+}
+ /*------------------------------------------------------------------*/
+
+
+#catigory-pagination{
+
+visibility: hidden;
+
+}
+ /*------------------------------------------------------------------ tem-title*/
+
+#item-title{
+    margin: 0;
+    padding: 0;
+
+    grid-column: 1;
+    grid-row: 1 ;
+    
+}
+ /*------------------------------------------------------------------  sidebar*/
+
+#sidebar{
+    margin: 0;
+    padding: 0;
+
+    margin-top: 150px;
+    grid-column: 1;
+    grid-row: 1 ;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+ /*------------------------------------------------------------------ info*/
+#info {
+    margin: 0;
+    padding: 0;
+
+    grid-column:1 ;
+    grid-row: 2 ;
+
+}
+ /*------------------------------------------------------------------ frequently-bought-together*/
+
+#frequently-bought-together {
+    margin: 0;
+    padding: 0;
+
+    grid-column: 1;
+    grid-row: 3  ;
+
+}
+
+#frequently-bought-together {
+
+}
+
+#frequently-bought-together #items {
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+ /*------------------------------------------------------------------ customers-who-viewed-this*/
+
+
+
+#customers-who-viewed-this{
+    margin: 0;
+    padding: 0;
+
+    grid-column: 1;
+    grid-row: 4;
+}
+
+
+#customers-who-viewed-this #carusel {
+    flex-direction: column;
 }

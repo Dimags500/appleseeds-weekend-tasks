@@ -4,9 +4,13 @@
     
 display: flex;
 justify-content: space-around;
+align-items: center;
+flex-wrap: nowrap;
 
 color: var(--praimary-color);
 background-color: var( --dark-blue-color);
+
+font-size: var( --font-size-01);
 
 
 }
@@ -22,10 +26,67 @@ background-color: var( --dark-blue-color);
     
 }
 
+.nav-item:hover{
+
+}
+
 
 #logo  img {
     height: 30px;
 }
 
+
+
+#serch-bar{
+    width: 70vw;
+}
+
+#books{
+    width: 70px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: aliceblue;
+    height: 40px;
+}
+#books:focus{
+    border:3px solid orange;
+}
+
+#search{
+    border: none;
+    outline: none;
+
+    height: 40px;
+    width: 80%;
+    max-width: 100%;
+    min-width: 10vh;
+    
+}
+
+#search:focus{
+    border:3px solid orange;
+
+}
+
+#search-btn {
+    height: 40px;
+    width: 50px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: orange;
+    padding-left: 0;
+    margin-left: 0;
+
+    
+}
+
+
+#search-btn:hover{
+    background-color: rgb(148, 103, 20);
+}
+
+#cart{
+    margin-right: 10px;
+}
 
 
