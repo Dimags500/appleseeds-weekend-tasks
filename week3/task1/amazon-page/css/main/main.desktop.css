@@ -143,6 +143,9 @@ text-decoration: none;
 #mobile-info{
     display: none;
 }
+#mobile-info-price{
+    display: none;
+}
 
 #info{
 
