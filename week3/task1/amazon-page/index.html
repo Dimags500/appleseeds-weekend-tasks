@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/navbar/navbar.desktop.css">
     <link rel="stylesheet" href="./css/header/header.desktop.css">
     <link rel="stylesheet" href="./css/main/main.desktop.css">
+    <link rel="stylesheet" media="screen and (max-width:960px)" href="./css/main/main.tablet.css">
     <!-- <link rel="stylesheet" media="screen and (max-with:500px)" href="./css/navbar/navbar.mabile.css"> -->
 
     <title>Amamzon Page</title>
@@ -109,13 +110,14 @@
     </header>
 
     <main>
-        <section id="catigory-pagination">
-            <div>
-                Books &nbsp; &#10093; &nbsp; Computers & Technology &nbsp; &#10093; &nbsp; Programming
-            </div>
-        </section>
+
 
         <div class="grid">
+            <section id="catigory-pagination">
+                <div>
+                    Books &nbsp; &#10093; &nbsp; Computers & Technology &nbsp; &#10093; &nbsp; Programming
+                </div>
+            </section>
 
 
             <section id="item-title">
@@ -176,7 +178,7 @@
 
             </section>
 
-
+            <!--info-->
             <section id="info">
                 <div id="buy-section">
 
@@ -301,7 +303,10 @@
 
 
                 </div>
-                <article>
+
+                <hr>
+
+                <article class="info-text">
                     <p>Available at a lower price from <a href="">other sellers </a> that may not offer free Prime
                         shipping.</p>
                     <p>Even bad code can function. But if code isn’t clean, it can bring a development organization to
@@ -323,44 +328,110 @@
 
                         </summary>
 
-                        <p>What kind of work will you be doing? You’ll be reading code―lots of code. And you will be
-                            challenged to think about what’s right about that code, and what’s wrong with it. More
-                            importantly you will be challenged to reassess your professional values and your commitment
-                            to
-                            your craft.
+                        <article>
+                            <p>What kind of work will you be doing? You’ll be reading code―lots of code. And you will be
+                                challenged to think about what’s right about that code, and what’s wrong with it. More
+                                importantly you will be challenged to reassess your professional values and your
+                                commitment to your craft. </p>
 
-                            Clean Codeis divided into three parts. The first describes the principles, patterns, and
-                            practices of writing clean code. The second part consists of several case studies of
-                            increasing
-                            complexity. Each case study is an exercise in cleaning up code―of transforming a code base
-                            that
-                            has some problems into one that is sound and efficient. The third part is the payoff: a
-                            single
-                            chapter containing a list of heuristics and “smells” gathered while creating the case
-                            studies.
-                            The result is a knowledge base that describes the way we think when we write, read, and
-                            clean
-                            code.
+                            <p>
+                                <strong>Clean Code</strong>is divided into three parts. The first describes the
+                                principles, patterns, and practices of writing clean code. The second part consists of
+                                several case studies of increasing complexity. Each case study is an exercise in
+                                cleaning up code―of transforming a code base that has some problems into one that is
+                                sound and efficient. The third part is the payoff: a single chapter containing a list of
+                                heuristics and “smells” gathered while creating the case studies. The result is a
+                                knowledge base that describes the way we think when we write, read, and clean code.
+                            </p>
 
-                            Readers will come away from this book understanding
-                            How to tell the difference between good and bad code
-                            How to write good code and how to transform bad code into good code
-                            How to create good names, good functions, good objects, and good classes
-                            How to format code for maximum readability
-                            How to implement complete error handling without obscuring code logic
-                            How to unit test and practice test-driven development
-                            What “smells” and heuristics can help you identify bad code
-                            This book is a must for any developer, software engineer, project manager, team lead, or
-                            systems
-                            analyst with an interest in producing better code.</p>
+                            <p>Readers will come away from this book understanding
+                            </p>
+
+                            <ul>
+                                <li>How to tell the difference between good and bad code</li>
+                                <li>How to write good code and how to transform bad code into good code</li>
+                                <li>How to create good names, good functions, good objects, and good classes</li>
+                                <li>How to format code for maximum readability</li>
+                                <li>How to implement complete error handling without obscuring code logic</li>
+                                <li>How to unit test and practice test-driven development</li>
+                                <li>What “smells” and heuristics can help you identify bad code</li>
+                            </ul>
+                            <p>This book is a must for any developer, software engineer, project manager, team lead, or
+                                systems analyst with an interest in producing better code.
+                            </p>
+                        </article>
+
+
                     </details>
 
 
                 </article>
             </section>
 
+
+
+
+            <!--Frequently bought together-->
+
+            <section id="frequently-bought-together">
+                <hr>
+
+
+                <h2>Frequently bought together</h2>
+
+                <div id="items">
+                    <a href=""><img src="./assets/img/items/Frequently bought together/1.jpg" alt=""></a>
+                    <i class="fa-solid fa-plus"></i>
+                    <a href=""><img src="./assets/img/items/Frequently bought together/2.jpg" alt=""></a>
+                    <i class="fa-solid fa-plus"></i>
+                    <a href=""><img src="./assets/img/items/Frequently bought together/3.jpg" alt=""></a>
+
+                    <div id="price-btn-add-all">
+                        <p>Total price : <span class="price-red">$101.01</span></p>
+                        <a href="" id="add-all-btn">Add all three to Cart</a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <section>
+                        <input type="checkbox"> <strong>This item: </strong>
+                        Clean Code: A Handbook of Agile Software Craftsmanship <small>by Robert C. Martin
+                            Paperback <span class="price-red">$43.49</span> <small>Get it as soon
+                                as</small><strong> Sunday, Apr 24
+                            </strong>FREE Shipping on orders over $49 shipped by Amazon
+                        </small>
+                    </section>
+
+                    <section>
+                        <input type="checkbox"> <a href="">Clean Architecture: A Craftsman's Guide to Software Structure
+                            and Design (Robert C. Martin Series)
+                        </a><small>by Robert Martin Paperback</small><span class="price-red">$28.11</span>
+                        <small>Get it as soon as</small><strong> Sunday, Apr 24
+                        </strong>FREE Shipping on orders over $49 shipped by Amazon
+                    </section>
+
+                    <section>
+                        <input type="checkbox"> <a href="">The Pragmatic Programmer: Your Journey To Mastery, 20th
+                            Anniversary Edition (2nd Edition) </a> by David Thomas Hardcover <span
+                            class="price-red">$29.41 </span> <sup>$14.46 shipping</sup>
+
+
+                    </section>
+                </div>
+                <hr>
+
+            </section>
+
+
+
+
         </div>
     </main>
+
+    <footer>
+
+    </footer>
 
 </body>
 

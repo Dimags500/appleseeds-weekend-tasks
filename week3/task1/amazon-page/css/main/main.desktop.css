@@ -1,9 +1,11 @@
 
-/* catigory-pagination*/
+/* --------------------------------------------------catigory-pagination*/
 
 #catigory-pagination {
     font-size: var(--font-size-1);
-    margin-bottom: 10px;
+    grid-column: 2/6;
+    grid-row: 1/1;
+    
 }
 
 
@@ -16,19 +18,31 @@ color: gray;
 }
 
 
-/* Main Grid */
+/* --------------------------------------------------Main Grid */
 
 .grid {
 
     margin: 1rem;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6 ,1fr);
+    grid-template-rows: repeat(4 ,1fr);
+}
+
+
+@media screen and (max-width:1260px) {
+    .grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+  
+    
 }
 
 
 
-/*Main sidebar*/
+/*--------------------------------------------------Main sidebar*/
 
 
 #sidebar{
@@ -41,6 +55,7 @@ color: gray;
 }
 
 #item-title{
+    margin-top: 30px;
     grid-column: 2/6;
     grid-row: 1/1;
 
@@ -122,7 +137,7 @@ text-decoration: none;
 }
 
 
-/*Main info*/
+/*--------------------------------------------Main info*/
 
 
 #info{
@@ -161,7 +176,7 @@ border: 1px solid gray;
     border-top: 3px solid red;
 }
 
-/*Main Price-section*/
+/*--------------------------------------Main Price-section*/
 
 #price-section a{
     text-decoration: none;
@@ -207,15 +222,17 @@ border: 1px solid gray;
 }
 
 
-/*more-buying-choices*/
+/*------------------------------------------------more-buying-choices*/
 
 #more-buying-choices {
     background-color: whitesmoke;
-    height: 12vh;
+    height: 11vh;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    margin-bottom: 10px;
 }
 
 #more-buying-choices a {
@@ -241,4 +258,61 @@ border: 1px solid gray;
     margin-right: 20px;
     
 
+}
+
+
+.info-text p {
+    margin-top: 10px;
+}
+
+.info-text ul {
+    margin: 20px;
+}
+
+/*----------------------------------------- frequently-bought-together*/ 
+
+#frequently-bought-together{
+    margin-top: 20px;
+    grid-column: 2 / 6;
+    grid-row: 4;
+}
+
+#frequently-bought-together a {
+    text-decoration: none;
+}
+
+#frequently-bought-together h2 {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+#frequently-bought-together #items {
+
+    display: flex;
+    align-items: center;
+}
+
+
+#frequently-bought-together  #add-all-btn{
+
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+#frequently-bought-together #price-btn-add-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#frequently-bought-together section {
+    margin-top: 10px;
+}
+#frequently-bought-together section:last-child{
+    margin-bottom: 15px;
 }
