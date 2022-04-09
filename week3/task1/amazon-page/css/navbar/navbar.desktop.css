@@ -1,4 +1,7 @@
 
+#mobile-nav{
+    display: none;
+}
 
 #navabr{
     
@@ -22,23 +25,27 @@ font-size: var( --font-size-01);
 
 .nav-item {
 
-    padding: 10px;
+    padding: 0.5vw;
     
 }
 
 .nav-item:hover{
-
+    border: 1.5px solid white;
 }
 
 
-#logo  img {
+.logo img {
     height: 30px;
 }
 
 
 
-#serch-bar{
-    width: 70vw;
+#search-bar{
+    width: 68vw;
+}
+
+#search-bar:hover{
+    border: none;
 }
 
 #books{
@@ -60,6 +67,7 @@ font-size: var( --font-size-01);
     width: 80%;
     max-width: 100%;
     min-width: 10vh;
+
     
 }
 
@@ -71,13 +79,12 @@ font-size: var( --font-size-01);
 #search-btn {
     height: 40px;
     width: 50px;
+    border: none;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: orange;
     padding-left: 0;
-    margin-left: 0;
-
-    
+    margin-left: 0;   
 }
 
 

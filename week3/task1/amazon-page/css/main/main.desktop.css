@@ -212,6 +212,12 @@ border: 1px solid gray;
 
 }
 
+#qty{
+    border-radius: 10px;
+    width: 60px;
+    background-color: aliceblue;
+}
+
 #btn-add-to-cart {
     background-color: yellow;
 

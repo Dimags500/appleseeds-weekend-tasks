@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="./css/header/header.desktop.css">
     <link rel="stylesheet" href="./css/main/main.desktop.css">
 
-    <link rel="stylesheet" media="screen and (max-width:960px)" href="./css/main/main.tablet.css">
+    <link rel="stylesheet" media="screen and (max-width:1160px)" href="./css/navbar/navbar.tablet.css">
+    <link rel="stylesheet" media="screen and (max-width:1160px)" href="./css/main/main.tablet.css">
+
+
+    <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css/navbar/navbar.mobile.css" />
+    <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css/header/header.mobile.css" />
     <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css//main/main.mobile.css" />
+
 
 
 
@@ -24,23 +30,25 @@
 </head>
 
 <body>
+    <!-- desktop navbar-->
 
     <nav id="navabr">
 
-        <div id="logo" class="nav-item"><img src="./assets/img/logos/white-logo.png" alt=""></div>
+        <div class="logo" class="nav-item"><img src="./assets/img/logos/white-logo.png" alt=""></div>
         <div class="nav-item"><a href=""> Delivery to <br>
                 <i class="fa-solid fa-location-dot"></i> <strong>Israel </strong>
             </a>
         </div>
-        <div class="nav-item" id="serch-bar">
+        <div class="nav-item" id="search-bar">
             <select id="books">
                 <option value="All">All Deparments</option>
                 <option value="Art">Art</option>
                 <option value="Deals">Deals</option>
                 <option value="Books" selected>Books</option>
-                <input type="text" placeholder="Search.." id="search">
-                <button type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+
             </select>
+            <input type="text" placeholder="Search.." id="search">
+            <button type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
 
         </div>
         <div class="nav-item"><i class="fa-solid fa-flag-usa"></i>
@@ -67,6 +75,33 @@
             <a href="" id="cart"> <i class="fa-solid fa-cart-shopping " style="font-size: 20px;"></i></a>
         </div>
 
+
+    </nav>
+
+    <!--Mobile navbar-->
+    <nav id="mobile-nav">
+
+        <div class="mobile-nav-item">
+            <ul>
+                <li>
+                    <a href=""><i class="fa-solid fa-bars"></i></a>
+                </li>
+                <li class="logo"><img src="./assets/img/logos/white-logo.png" alt=""></li>
+                <li> <small>Sing in > </small> <i class="fa-solid fa-user"></i></li>
+                <li><i class="fa-solid fa-cart-shopping"></i></li>
+            </ul>
+        </div>
+
+        <div class="mobile-nav-item">
+            <input type="text" placeholder="Search.." id="search">
+            <button type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="mobile-nav-item">
+            <a href=""> Delivery to
+                <i class="fa-solid fa-location-dot"></i> <strong>Israel </strong>
+            </a>
+        </div>
 
     </nav>
 
@@ -264,7 +299,7 @@
                                     <ul>
                                         <li><a href=""><i class="fa-solid fa-location-dot"></i> Delivery to Israel</a>
                                         </li>
-                                        <li> <select name="" id="">
+                                        <li> <select name="" id="qty">
                                                 <option selected>Qty:1<i class="fa-solid fa-angle-down"
                                                         style="color: black;"></i></option>
                                                 <option value="">2</option>

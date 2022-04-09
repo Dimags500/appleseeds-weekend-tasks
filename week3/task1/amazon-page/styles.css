@@ -19,3 +19,9 @@
     border: none ;
     border-radius: 15px;
 }
+
+
+
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
