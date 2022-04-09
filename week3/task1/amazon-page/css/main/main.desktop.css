@@ -316,3 +316,42 @@ border: 1px solid gray;
 #frequently-bought-together section:last-child{
     margin-bottom: 15px;
 }
+
+
+/*--------------------------------------------------------customers-who-viewed-this*/ 
+
+
+#customers-who-viewed-this {
+
+    grid-column: 2 / 6;
+    grid-row: 5;
+
+
+
+}
+
+#customers-who-viewed-this h2 {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+
+#customers-who-viewed-this a {
+    text-decoration: none;
+    
+
+}
+
+#customers-who-viewed-this  #carusel {
+    display: flex;
+    justify-content: space-evenly;
+
+    margin-bottom: 20px;
+    
+}
+
+
+#customers-who-viewed-this #carusel-item {
+    margin-left: 10px;
+
+}

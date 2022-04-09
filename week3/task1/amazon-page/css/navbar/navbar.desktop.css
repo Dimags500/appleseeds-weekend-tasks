@@ -23,5 +23,9 @@ background-color: var( --dark-blue-color);
 }
 
 
+#logo  img {
+    height: 30px;
+}
+
 
 
