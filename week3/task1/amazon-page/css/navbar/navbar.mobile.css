@@ -6,11 +6,14 @@
 display: none ;
 padding: 0;
 margin: 0;
+
     
 }
 
 #mobile-nav{
     display:contents;
+
+    width: 100%;
 
 
 }

@@ -23,5 +23,8 @@
 
 
 body {
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    /* overflow-x: hidden;  */
+
+
+    width: 100vw;
   }
