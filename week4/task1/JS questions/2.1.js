@@ -21,5 +21,5 @@ function sumTwoLowestNumbers(array) {
 }
 
 const array = [12, 20000, 324.22, -10, 33, 1.1, 100, 2.4];
-const resualt = sumTwoLowestNumbers(array);
-console.log(resualt);
+const result = sumTwoLowestNumbers(array);
+console.log(result);

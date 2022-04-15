@@ -5,5 +5,5 @@ function yesOrNo(bool_value) {
   return bool_value ? "Yes" : "No";
 }
 
-const res = yesOrNo(false);
-console.log(res);
+const result = yesOrNo(false);
+console.log(result);

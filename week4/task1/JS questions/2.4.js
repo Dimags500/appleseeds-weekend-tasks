@@ -8,5 +8,5 @@ function findUniq(array) {
   return array.sort((a, b) => b - a).find((num, i) => num[i - 1] != num);
 }
 
-const resalut = findUniq([1, 1, 1, 2, 1, 1]);
-console.log(resalut);
+const result = findUniq([1, 1, 1, 2, 1, 1]);
+console.log(result);

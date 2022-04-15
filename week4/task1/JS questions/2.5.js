@@ -17,6 +17,6 @@ function summation(n) {
   return sum;
 }
 
-const resalut = summation(8);
+const result = summation(8);
 
-console.log(resalut);
+console.log(result);
