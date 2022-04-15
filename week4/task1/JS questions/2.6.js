@@ -18,4 +18,5 @@ function yearsAndCenturies(num) {
   }
 }
 
-const resualt = yearsAndCenturies(1200);
+const result = yearsAndCenturies(2002);
+console.log(result);
