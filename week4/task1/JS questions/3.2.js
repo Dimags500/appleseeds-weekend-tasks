@@ -10,3 +10,27 @@
 // Please keep in mind that the test cases ensure that the number of people in the bus is always
 // >= 0. So the return integer can't be negative.
 // The second value in the first integer array is 0, since the bus is empty in the first bus stop
+
+const busStops = [0, [12, 0], [2, 3], [2, 0], [8, 3], [1, 10]];
+
+function peopletInBus(stopsArray) {
+  let peopleInCounter = 0;
+  let peopleOutCounter = 0;
+  let peopleLeft = 0;
+
+  for (let i = 1; i < stopsArray.length; i++) {
+    peopleInCounter += stopsArray[i][0];
+    peopleOutCounter += stopsArray[i][1];
+
+    peopleLeft = peopleInCounter - peopleOutCounter;
+    if (peopleLeft < 0) {
+      peopleLeft = 0;
+    }
+  }
+
+  return peopleLeft;
+}
+
+const result = peopletInBus(busStops);
+
+console.log(result);
