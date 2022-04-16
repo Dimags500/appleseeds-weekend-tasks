@@ -10,10 +10,12 @@
 // At the end of the 3rd year there will be:
 // 1141 + 1141 * 0.02 + 50 => 1213
 // It will need 3 entire years.
+
 // More generally given parameters:
 // - p0, percent, aug (inhabitants coming or leaving each year), p (population to surpass)
 // - the function nb_year should return n number of entire years needed to get a population
 // greater or equal to p.
+
 // - aug is an integer, percent a positive or null number, p0 and p are positive integers (> 0)
 // Examples:
 // nb_year(1500, 5, 100, 5000) -> 15
@@ -25,3 +27,18 @@
 // +0.2% every year
 // +50
 // when will be 1200
+
+function loMuvanClum(initNum, needed, increase, inhabitants) {
+  let population = initNum;
+  let years = 0;
+
+  while (population < needed) {
+    years++;
+    population += population * increase + inhabitants;
+  }
+
+  return years;
+}
+
+const result = loMuvanClum(1000, 1200, 0.02, 50);
+console.log(result);
