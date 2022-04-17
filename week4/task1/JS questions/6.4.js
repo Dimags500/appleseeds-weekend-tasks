@@ -14,6 +14,7 @@ function isogram(str) {
       return false;
     }
   }
+
   return true;
 }
 

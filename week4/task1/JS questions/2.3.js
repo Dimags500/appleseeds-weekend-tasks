@@ -9,3 +9,20 @@
 // findNextSquare(121) --> returns 144
 // findNextSquare(625) --> returns 676
 // findNextSquare(114) --> returns -1 since 114 is not a perfect
+
+function SquareSquare(n) {
+  if (n < 0) {
+    return;
+  }
+
+  let num, nextNum;
+
+  if (Math.sqrt(n) % 1 === 0) {
+    num = Math.sqrt(n);
+    nextNum = num + 1;
+  } else return -1;
+
+  return nextNum * nextNum;
+}
+
+console.log(SquareSquare(114));
