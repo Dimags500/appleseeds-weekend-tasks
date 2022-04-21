@@ -40,4 +40,59 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
-const romanToInt = function (s) {};
+const romanToInt = function (s) {
+  let arr = [];
+
+  for (let i = 0; i < s.length; i++) {
+    arr[i] = ConverLetter(s[i]);
+  }
+
+  let total = 0;
+
+  if (arr.length < 6) {
+    total = arr.reduce((sum, item) => (sum += item));
+  } else {
+    for (let i = 0; i != arr.length; i++) {
+      if (arr[i - 1] > arr[i]) {
+        //1000 > 100
+        if (total == 0) {
+          // only firt time
+          total = arr[i - 1];
+        }
+      }
+
+      if (arr[i - 1] < arr[i]) {
+        // 1000 < 100
+        total += arr[i] - arr[i - 1];
+      }
+    }
+  }
+
+  console.log(total);
+
+  return total;
+};
+
+function ConverLetter(l) {
+  switch (l) {
+    case "I":
+      return 1;
+    case "V":
+      return 5;
+    case "X":
+      return 10;
+    case "L":
+      return 50;
+    case "C":
+      return 100;
+    case "D":
+      return 500;
+    case "M":
+      return 1000;
+
+    default:
+      return 0;
+  }
+}
+
+module.exports = romanToInt;
