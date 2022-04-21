@@ -41,11 +41,10 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 
 const romanToInt = function (s) {
-  let arr = [];
-
-  for (let i = 0; i < s.length; i++) {
-    arr[i] = ConverLetter(s[i]);
-  }
+  let arr = s
+    .toUpperCase()
+    .split("")
+    .map((item) => ConverLetter(item));
 
   let total = 0;
 
