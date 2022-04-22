@@ -67,7 +67,7 @@ const romanToInt = function (s) {
     }
   }
 
-  console.log(total);
+  // console.log(total);
 
   return total;
 };
