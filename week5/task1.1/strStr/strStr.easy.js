@@ -47,7 +47,6 @@ const strStr = function (haystack, needle) {
       }
     }
   }
-  console.log(result);
   return result.length == toSerch.length ? result[0] : -1;
 };
 
