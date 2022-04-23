@@ -23,4 +23,44 @@ Example 3:
 Input: s = "(]"
 Output: false
  */
-const isValid = function (s) {};
+const isValid = function (s) {
+  let arr = [
+    [
+      ["[", 0],
+      ["]", 0],
+    ],
+    [
+      ["{", 0],
+      ["}", 0],
+    ],
+    [
+      ["(", 0],
+      [")", 0],
+    ],
+  ];
+
+  let input = s.split("");
+  let result = true;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < input.length; j++) {
+      if (arr[i][0][0] == input[j]) {
+        arr[i][0][1]++;
+      }
+
+      if (arr[i][1][0] == input[j]) {
+        arr[i][1][1]++;
+      }
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][0][1] != arr[i][1][1]) {
+      result = false;
+    }
+  }
+
+  return result;
+};
+
+module.exports = isValid;
