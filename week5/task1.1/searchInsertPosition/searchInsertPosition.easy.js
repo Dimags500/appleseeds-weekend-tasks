@@ -32,15 +32,6 @@ nums contains distinct values sorted in ascending order.
 -104 <= target <= 104
  */
 const searchInsert = function (nums, target) {
-  //   let result;
-  //   for (let i = 0; i < nums.length; i++) {
-  //     if (nums[i] === target) {
-  //       return i;
-  //     } else if (target > nums.length) {
-  //       return target - nums[nums.length - 1];
-  //     }
-  //   }
-
   if (nums.indexOf(target) > 0) return nums.indexOf(target);
   if (target > nums[nums.length - 1]) {
     return nums.length - 1 + (target - nums[nums.length - 1]);
@@ -53,5 +44,5 @@ const searchInsert = function (nums, target) {
   }
 };
 
-console.log(searchInsert([1, 3, 5, 6, 10], 9));
+// console.log(searchInsert([1, 3, 5, 6, 10], 9));
 module.exports = searchInsert;

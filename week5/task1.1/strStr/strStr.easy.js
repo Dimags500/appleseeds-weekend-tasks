@@ -31,4 +31,24 @@ Constraints:
 haystack and needle consist of only lowercase English characters.
  */
 
-const strStr = function (haystack, needle) {};
+const strStr = function (haystack, needle) {
+  if (needle == "") {
+    return 0;
+  }
+  let result = [];
+  let word = haystack.toLowerCase().split("");
+  let toSerch = needle.toLowerCase().split("");
+
+  for (let i = 0; i < word.length; i++) {
+    for (let j = 0; j < toSerch.length; j++) {
+      if (word[i] == toSerch[j]) {
+        result.push(i);
+        break;
+      }
+    }
+  }
+  console.log(result);
+  return result.length == toSerch.length ? result[0] : -1;
+};
+
+module.exports = strStr;
