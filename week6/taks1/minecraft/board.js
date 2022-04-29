@@ -37,6 +37,28 @@ function groundBuilder(boardArray) {
   }
 }
 
+// function cellsBuilder(board) {
+//   for (let i = 0; i < 20; i++) {
+//     for (let j = 0; j < 20; j++) {
+//       let currCell = [i, j].toString();
+//       let cell = document.createElement("div");
+
+//       if (boardArray[i][j] == 1) {
+//         cell.classList.add("cell", "sky");
+//         cell.setAttribute("cell-type", "1");
+//       }
+//       if (boardArray[i][j] == 2) {
+//         cell.classList.add("cell", "ground");
+//         cell.setAttribute("cell-type", "2");
+//       }
+//       cell.setAttribute("cell-index", currCell);
+//       board.appendChild(cell);
+//     }
+//   }
+// }
+// let board = document.getElementById("game-board");
+// cellsBuilder(board);
+
 skyBulder(boardArray);
 groundBuilder(boardArray);
 
