@@ -26,6 +26,18 @@ function cellsBuilder(board) {
         cell.classList.add("cell", "ground");
         cell.setAttribute("cell-type", "2");
       }
+      if (boardArray[i][j] == 3) {
+        cell.classList.add("cell", "rock");
+        cell.setAttribute("cell-type", "3");
+      }
+      if (boardArray[i][j] == 4) {
+        cell.classList.add("cell", "wood");
+        cell.setAttribute("cell-type", "4");
+      }
+      if (boardArray[i][j] == 5) {
+        cell.classList.add("cell", "leafs");
+        cell.setAttribute("cell-type", "5");
+      }
       cell.setAttribute("cell-index", currCell);
       cell.addEventListener("click", cellClick);
       board.appendChild(cell);
@@ -59,6 +71,8 @@ function cellClick(e) {
   board.innerHTML = "";
   cellsBuilder(board);
 }
+
+console.log(boardArray);
 
 /// get cell index  & insert to it new type
 function setBoard(cellIndex, currBank) {

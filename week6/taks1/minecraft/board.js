@@ -22,7 +22,7 @@ let boardArray = [
 ];
 
 function skyBulder(boardArray) {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 12; i++) {
     for (let j = 0; j < boardArray[i].length; j++) {
       boardArray[i][j] = 1;
     }
@@ -30,9 +30,37 @@ function skyBulder(boardArray) {
 }
 
 function groundBuilder(boardArray) {
-  for (let i = 10; i < 19; i++) {
+  for (let i = 12; i < 20; i++) {
     for (let j = 0; j < boardArray[i].length; j++) {
       boardArray[i][j] = 2;
+    }
+  }
+}
+
+function rockBuilder(boardArray) {
+  for (let i = 10; i < 12; i++) {
+    for (let j = 8; j < 10; j++) {
+      boardArray[i][j] = 3;
+    }
+
+    for (let j = 2; j < 4; j++) {
+      boardArray[i][j] = 3;
+    }
+  }
+}
+
+function woodBuilder(boardArray) {
+  for (let i = 7; i < 12; i++) {
+    for (let j = 14; j < 16; j++) {
+      boardArray[i][j] = 4;
+    }
+  }
+}
+
+function leafsBuilder(boardArray) {
+  for (let i = 3; i < 7; i++) {
+    for (let j = 12; j < 18; j++) {
+      boardArray[i][j] = 5;
     }
   }
 }
@@ -61,5 +89,8 @@ function groundBuilder(boardArray) {
 
 skyBulder(boardArray);
 groundBuilder(boardArray);
+woodBuilder(boardArray);
+leafsBuilder(boardArray);
+rockBuilder(boardArray);
 
 export { boardArray };
