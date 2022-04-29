@@ -22,6 +22,9 @@
     align-items: center;
     flex-direction: column;
     background-color: black;
+    max-height: 600px;
+    width: 200px;
+
 
     
 
@@ -32,6 +35,7 @@
     margin-top: 10%;
     width: 10vw;
     height: 10vw;
+    
 }
 
 #game-menu button{
@@ -41,22 +45,30 @@
 
 
 #game-board{
-    display: flex;
+    /* display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 3px;
+    background-color: black; 
+    height: 100vh;
+    height: 100vw; */
+    /* max-height: 700px; */
 
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20 , 1fr);
     border: 2px solid red;
+    width: 100%;
+
     
 }
 
 .cell{
-    background-color: aqua;
-    width: var(--cell-size);
-    height: var(--cell-size);
-
+    background-color: blue;
 }
 
 .cell:hover{
     background-color: antiquewhite;
 }
+
+

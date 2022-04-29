@@ -21,4 +21,23 @@ let boardArray = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //19
 ];
 
+function skyBulder(boardArray) {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < boardArray[i].length; j++) {
+      boardArray[i][j] = 1;
+    }
+  }
+}
+
+function groundBuilder(boardArray) {
+  for (let i = 10; i < 19; i++) {
+    for (let j = 0; j < boardArray[i].length; j++) {
+      boardArray[i][j] = 2;
+    }
+  }
+}
+
+skyBulder(boardArray);
+groundBuilder(boardArray);
+
 export { boardArray };

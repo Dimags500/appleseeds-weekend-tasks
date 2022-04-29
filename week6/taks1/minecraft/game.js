@@ -38,10 +38,16 @@ let board = document.getElementById("game-board");
 function cellsBuilder(board) {
   for (let i = 0; i < 20; i++) {
     for (let j = 0; j < 20; j++) {
-      let curr = [i, j].toString();
+      let currCell = [i, j].toString();
       let cell = document.createElement("div");
-      cell.classList.add("cell");
-      cell.setAttribute("cell-number", curr);
+
+      if (boardArray[i][j] == 1) {
+        cell.classList.add("cell", "sky");
+      }
+      if (boardArray[i][j] == 2) {
+        cell.classList.add("cell", "ground");
+      }
+      cell.setAttribute("cell-number", currCell);
       cell.addEventListener("click", cellClick);
       board.appendChild(cell);
     }
@@ -49,8 +55,12 @@ function cellsBuilder(board) {
 }
 
 function cellClick(e) {
-  console.log(e);
+  let currClass = e.target.classList[1];
+  e.target.classList.toggle(currClass);
+  let cellNumber = e.target.getAttribute("cell-number").split(",");
+
+  console.log(cellNumber);
 }
+// console.log(boardArray);
 
 cellsBuilder(board);
-console.log(boardArray);
