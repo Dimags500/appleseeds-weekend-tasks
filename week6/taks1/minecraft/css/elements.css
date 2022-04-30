@@ -23,16 +23,13 @@ background-color: greenyellow;
     background-color: black;;
 }
 
-#tool1{
-    background-color: burlywood;
-}
-
-#tool2{
+#tool1 , #tool2 , #tool3{
     background-color: burlywood;
 
 }
 
-#tool3{
-    background-color: burlywood;
+#tool1 , #tool2 , #tool3:hover{
+cursor: pointer ;
+
 }
 
