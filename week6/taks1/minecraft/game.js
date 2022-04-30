@@ -1,4 +1,4 @@
-import { boardArray, cellsBuilder, setBoard } from "./board.js";
+import { boardArray, cellsBuilder, setCell } from "./board.js";
 import { currTool } from "./tools.js";
 
 let board = document.getElementById("game-board");
@@ -40,20 +40,20 @@ function toolAction1(e) {
 
   if (currBank == EMPTY) {
     bank.className = currClass;
-    setBoard(cellIndex, "1");
+    setCell(cellIndex, "1");
     bank.setAttribute("bank_value", cellType);
   }
 
   if (currBank == "1") {
     if (cellType == "2") {
-      setBoard(cellIndex, currBank);
+      setCell(cellIndex, currBank);
       bank.setAttribute("bank_value", EMPTY);
     }
   }
 
   if (currBank == "2") {
     if (cellType == "1") {
-      setBoard(cellIndex, currBank);
+      setCell(cellIndex, currBank);
       bank.setAttribute("bank_value", EMPTY);
     }
   }
@@ -81,20 +81,20 @@ function toolAction2(e) {
     if (cellType == 1) return;
     bank.className = currClass;
 
-    setBoard(cellIndex, "1");
+    setCell(cellIndex, "1");
     bank.setAttribute("bank_value", cellType);
   }
 
   if (currBank == "4") {
     if (cellType == "5" || cellType == "1") {
-      setBoard(cellIndex, currBank);
+      setCell(cellIndex, currBank);
       bank.setAttribute("bank_value", EMPTY);
     }
   }
 
   if (currBank == "5") {
     if (cellType == "4" || cellType == "1") {
-      setBoard(cellIndex, currBank);
+      setCell(cellIndex, currBank);
       bank.setAttribute("bank_value", EMPTY);
     }
   }
@@ -120,12 +120,12 @@ function toolAction3(e) {
     if (cellType == 1) return;
     bank.className = currClass;
 
-    setBoard(cellIndex, "1");
+    setCell(cellIndex, "1");
     bank.setAttribute("bank_value", cellType);
   }
 
   if (currBank == "3") {
-    setBoard(cellIndex, currBank);
+    setCell(cellIndex, currBank);
     bank.setAttribute("bank_value", EMPTY);
   }
 

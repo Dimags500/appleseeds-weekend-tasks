@@ -113,7 +113,7 @@ function cellsBuilder(board, cellClick) {
   }
 }
 
-function setBoard(cellIndex, currBank) {
+function setCell(cellIndex, currBank) {
   boardArray[cellIndex[0]][cellIndex[1]] = currBank;
 }
 
@@ -124,4 +124,4 @@ leafsBuilder(boardArray);
 rockBuilder(boardArray);
 cloudBuilder(boardArray);
 
-export { boardArray, cellsBuilder, setBoard };
+export { boardArray, cellsBuilder, setCell };
