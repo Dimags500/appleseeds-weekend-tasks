@@ -2,6 +2,7 @@
 *{
     padding: 0;
     margin: 0;
+
 }
 
 
@@ -13,21 +14,16 @@
 
 
 #game-menu{
-    width: 50%;
-    height: 100%;
-    border: 2px solid red;
-    margin-left: 5px;
-
+ 
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: black;
-    max-height: 600px;
+    max-height: 700px;
     width: 200px;
 
-
-    
-
+    background-color: black;
+    border: 2px solid red;
+    margin-left: 5px;
 }
 
 #game-menu div{
@@ -39,20 +35,21 @@
 }
 
 #game-menu button{
+    border: 2px solid red;
+
+    width: 10vw;
+    height: 10vw;
+
     margin-top: 10%;
 
 }
 
+#game-menu button:hover{
+    background-color: red;
+}
+
 
 #game-board{
-    /* display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 3px;
-    background-color: black; 
-    height: 100vh;
-    height: 100vw; */
-    /* max-height: 700px; */
 
     display: grid;
     grid-template-columns: repeat(20, 1fr);
@@ -71,4 +68,47 @@
     background-color: antiquewhite;
 }
 
+/* Mobile & Tablet mode  */ 
+@media screen and (max-width:800px ) {
+    #game-page{
+        flex-direction: column;
+    }
+    #game-board{
+        width: 100%;
+        height: 550px;
+    }
 
+    #game-menu{
+   
+        width: 100%;
+        height: 150px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid red;
+        margin:0;
+        margin-top: 5px;
+    
+    }
+
+  
+
+    #game-menu div{
+        margin: 0;
+
+        width: 70px;
+        height:70px;
+        
+    }
+    
+    #game-menu button{
+        border: 2px solid red;
+        width: 70px;
+        height: 70px;
+        margin:0;
+        margin-left: 10px;
+    
+    }
+    
+
+}

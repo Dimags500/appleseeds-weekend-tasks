@@ -1,14 +1,19 @@
 import { boardArray } from "./board.js";
 
 let board = document.getElementById("game-board");
-
 let bank = document.getElementById("bank");
 const NADA = "1";
 bank.setAttribute("bank_value", NADA);
 
+let currTool;
 let tool1 = document.getElementById("tool1");
 let tool2 = document.getElementById("tool1");
 let tool3 = document.getElementById("tool1");
+let tools = [tool1, tool2, tool3].forEach((item) =>
+  item.addEventListener("click", setTool)
+);
+
+function setTool(e) {}
 
 cellsBuilder(board);
 
