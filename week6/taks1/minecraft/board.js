@@ -76,6 +76,47 @@ function cloudBuilder(boardArray) {
   }
 }
 
+function cellsBuilder(board, cellClick) {
+  for (let i = 0; i < 20; i++) {
+    for (let j = 0; j < 20; j++) {
+      let currCell = [i, j].toString();
+      let cell = document.createElement("div");
+
+      if (boardArray[i][j] == 0) {
+        cell.classList.add("cell", "cloud");
+        cell.setAttribute("cell-type", "0");
+      }
+      if (boardArray[i][j] == 1) {
+        cell.classList.add("cell", "sky");
+        cell.setAttribute("cell-type", "1");
+      }
+      if (boardArray[i][j] == 2) {
+        cell.classList.add("cell", "ground");
+        cell.setAttribute("cell-type", "2");
+      }
+      if (boardArray[i][j] == 3) {
+        cell.classList.add("cell", "rock");
+        cell.setAttribute("cell-type", "3");
+      }
+      if (boardArray[i][j] == 4) {
+        cell.classList.add("cell", "wood");
+        cell.setAttribute("cell-type", "4");
+      }
+      if (boardArray[i][j] == 5) {
+        cell.classList.add("cell", "leafs");
+        cell.setAttribute("cell-type", "5");
+      }
+      cell.setAttribute("cell-index", currCell);
+      cell.addEventListener("click", cellClick);
+      board.appendChild(cell);
+    }
+  }
+}
+
+function setBoard(cellIndex, currBank) {
+  boardArray[cellIndex[0]][cellIndex[1]] = currBank;
+}
+
 skyBulder(boardArray);
 groundBuilder(boardArray);
 woodBuilder(boardArray);
@@ -83,4 +124,4 @@ leafsBuilder(boardArray);
 rockBuilder(boardArray);
 cloudBuilder(boardArray);
 
-export { boardArray };
+export { boardArray, cellsBuilder, setBoard };

@@ -1,63 +1,12 @@
-import { boardArray } from "./board.js";
+import { boardArray, cellsBuilder, setBoard } from "./board.js";
+import { currTool } from "./tools.js";
 
 let board = document.getElementById("game-board");
 let bank = document.getElementById("bank");
 const EMPTY = "0";
 bank.setAttribute("bank_value", EMPTY);
 
-let currTool = "0";
-let tool1 = document.getElementById("tool1");
-let tool2 = document.getElementById("tool2");
-let tool3 = document.getElementById("tool3");
-let tools = [tool1, tool2, tool3];
-tools.forEach((item) => item.addEventListener("click", setTool));
-
-function setTool(e) {
-  currTool = e.target.getAttribute("tool-type");
-
-  let tools = [tool1, tool2, tool3];
-  for (let i = 0; i < tools.length; i++) {
-    tools[i].style.backgroundColor = "";
-  }
-  e.target.style.backgroundColor = "red";
-}
-
-function cellsBuilder(board) {
-  for (let i = 0; i < 20; i++) {
-    for (let j = 0; j < 20; j++) {
-      let currCell = [i, j].toString();
-      let cell = document.createElement("div");
-
-      if (boardArray[i][j] == 0) {
-        cell.classList.add("cell", "cloud");
-        cell.setAttribute("cell-type", "0");
-      }
-      if (boardArray[i][j] == 1) {
-        cell.classList.add("cell", "sky");
-        cell.setAttribute("cell-type", "1");
-      }
-      if (boardArray[i][j] == 2) {
-        cell.classList.add("cell", "ground");
-        cell.setAttribute("cell-type", "2");
-      }
-      if (boardArray[i][j] == 3) {
-        cell.classList.add("cell", "rock");
-        cell.setAttribute("cell-type", "3");
-      }
-      if (boardArray[i][j] == 4) {
-        cell.classList.add("cell", "wood");
-        cell.setAttribute("cell-type", "4");
-      }
-      if (boardArray[i][j] == 5) {
-        cell.classList.add("cell", "leafs");
-        cell.setAttribute("cell-type", "5");
-      }
-      cell.setAttribute("cell-index", currCell);
-      cell.addEventListener("click", cellClick);
-      board.appendChild(cell);
-    }
-  }
-}
+cellsBuilder(board, cellClick);
 
 function cellClick(e) {
   switch (currTool) {
@@ -75,7 +24,6 @@ function cellClick(e) {
       return;
   }
 }
-
 function toolAction1(e) {
   let currBank = bank.getAttribute("bank_value");
   let cellType = e.target.getAttribute("cell-type");
@@ -83,14 +31,15 @@ function toolAction1(e) {
   let currClass = e.target.classList[1];
 
   if (cellType == 3 || cellType == 4 || cellType == 5 || cellType == 0) return;
-  let cellBeforGroung = boardArray[parseInt(cellIndex[0]) - 1][cellIndex[1]];
-  if (cellBeforGroung != 1) {
+  let cellBefor = boardArray[parseInt(cellIndex[0]) - 1][cellIndex[1]];
+  let cellafter = boardArray[parseInt(cellIndex[0]) + 1][cellIndex[1]];
+
+  if (cellBefor != 1 || cellafter != 2) {
     return;
   }
 
   if (currBank == EMPTY) {
     bank.className = currClass;
-
     setBoard(cellIndex, "1");
     bank.setAttribute("bank_value", cellType);
   }
@@ -114,7 +63,7 @@ function toolAction1(e) {
   }
 
   board.innerHTML = "";
-  cellsBuilder(board);
+  cellsBuilder(board, cellClick);
 }
 function toolAction2(e) {
   let currBank = bank.getAttribute("bank_value");
@@ -123,6 +72,10 @@ function toolAction2(e) {
   let currClass = e.target.classList[1];
 
   if (cellType == 2 || cellType == 3 || cellType == 0) return;
+  let cellBefor = boardArray[parseInt(cellIndex[0]) - 1][cellIndex[1]];
+  let cellafter = boardArray[parseInt(cellIndex[0]) + 1][cellIndex[1]];
+
+  // if (cellafter != 2 || (cellafter != 3 && cellafter != 3)) return;
 
   if (currBank == EMPTY) {
     if (cellType == 1) return;
@@ -151,7 +104,7 @@ function toolAction2(e) {
   }
 
   board.innerHTML = "";
-  cellsBuilder(board);
+  cellsBuilder(board, cellClick);
 }
 function toolAction3(e) {
   let currBank = bank.getAttribute("bank_value");
@@ -160,6 +113,8 @@ function toolAction3(e) {
   let currClass = e.target.classList[1];
 
   if (cellType == 2 || cellType == 4 || cellType == 5 || cellType == 0) return;
+  let cellBefor = boardArray[parseInt(cellIndex[0]) + 1][cellIndex[1]];
+  if (cellBefor != 2 && cellBefor != 3) return;
 
   if (currBank == EMPTY) {
     if (cellType == 1) return;
@@ -179,16 +134,9 @@ function toolAction3(e) {
   }
 
   board.innerHTML = "";
-  cellsBuilder(board);
+  cellsBuilder(board, cellClick);
 }
 
-/// get cell index  & insert to it new type
-function setBoard(cellIndex, currBank) {
-  boardArray[cellIndex[0]][cellIndex[1]] = currBank;
-}
-cellsBuilder(board);
-
-//------------------------------------------------------------------------------
 // intro-page off
 document.getElementById("intro-page-btn").addEventListener("click", () => {
   document.getElementById("game-intro").style.display = "none";
