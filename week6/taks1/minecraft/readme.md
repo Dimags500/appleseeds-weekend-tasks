@@ -18,4 +18,5 @@ set cell-type atribute with number 0-5
 set cell-index atribute with number of position of element in array
 set callback on click event and append the element in to game-board div 3.
 
-![Employee data](/minecraft/img/somecraf.jpg?raw=true)
+
+![somecraf](https://user-images.githubusercontent.com/73039506/166121373-450f7d92-16ed-4a2a-b151-7e97bf3d5f63.jpg)
