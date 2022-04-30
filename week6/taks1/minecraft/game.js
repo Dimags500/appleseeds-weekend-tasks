@@ -28,6 +28,10 @@ function cellsBuilder(board) {
       let currCell = [i, j].toString();
       let cell = document.createElement("div");
 
+      if (boardArray[i][j] == 0) {
+        cell.classList.add("cell", "cloud");
+        cell.setAttribute("cell-type", "0");
+      }
       if (boardArray[i][j] == 1) {
         cell.classList.add("cell", "sky");
         cell.setAttribute("cell-type", "1");
@@ -57,7 +61,7 @@ function cellsBuilder(board) {
 
 function cellClick(e) {
   switch (currTool) {
-    case undefined || "0":
+    case undefined || "0" || 0:
       alert("chose tool");
       return;
     case "1":
@@ -66,7 +70,7 @@ function cellClick(e) {
     case "2":
       toolAction2(e);
       return;
-    case 3:
+    case "3":
       toolAction3(e);
       return;
   }
@@ -78,7 +82,7 @@ function toolAction1(e) {
   let cellIndex = e.target.getAttribute("cell-index").split(",");
   let currClass = e.target.classList[1];
 
-  if (cellType == 3 || cellType == 4 || cellType == 5) return;
+  if (cellType == 3 || cellType == 4 || cellType == 5 || cellType == 0) return;
   let cellBeforGroung = boardArray[parseInt(cellIndex[0]) - 1][cellIndex[1]];
   if (cellBeforGroung != 1) {
     return;
@@ -118,7 +122,7 @@ function toolAction2(e) {
   let cellIndex = e.target.getAttribute("cell-index").split(",");
   let currClass = e.target.classList[1];
 
-  if (cellType == 2 || cellType == 3) return;
+  if (cellType == 2 || cellType == 3 || cellType == 0) return;
 
   if (currBank == EMPTY) {
     if (cellType == 1) return;
@@ -150,14 +154,38 @@ function toolAction2(e) {
   cellsBuilder(board);
 }
 function toolAction3(e) {
-  console.log(e);
+  let currBank = bank.getAttribute("bank_value");
+  let cellType = e.target.getAttribute("cell-type");
+  let cellIndex = e.target.getAttribute("cell-index").split(",");
+  let currClass = e.target.classList[1];
+
+  if (cellType == 2 || cellType == 4 || cellType == 5 || cellType == 0) return;
+
+  if (currBank == EMPTY) {
+    if (cellType == 1) return;
+    bank.className = currClass;
+
+    setBoard(cellIndex, "1");
+    bank.setAttribute("bank_value", cellType);
+  }
+
+  if (currBank == "3") {
+    setBoard(cellIndex, currBank);
+    bank.setAttribute("bank_value", EMPTY);
+  }
+
+  if (bank.getAttribute("bank_value") == EMPTY) {
+    bank.className = "blank";
+  }
+
+  board.innerHTML = "";
+  cellsBuilder(board);
 }
 
 /// get cell index  & insert to it new type
 function setBoard(cellIndex, currBank) {
   boardArray[cellIndex[0]][cellIndex[1]] = currBank;
 }
-
 cellsBuilder(board);
 
 //------------------------------------------------------------------------------

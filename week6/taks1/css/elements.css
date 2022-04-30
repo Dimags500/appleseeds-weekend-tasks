@@ -15,6 +15,9 @@ background-color: orange;
 .leafs{
 background-color: greenyellow;
 }
+.cloud{
+    background-color: aliceblue;
+}
 
 .blank{
     background-color: black;;
@@ -33,6 +36,3 @@ background-color: greenyellow;
     background-color: burlywood;
 }
 
-.active{
-    background-color: red;
-}
