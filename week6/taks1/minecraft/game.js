@@ -77,9 +77,13 @@ function cellClick(e) {
   cellsBuilder(board);
 }
 
-console.log(boardArray);
-
 /// get cell index  & insert to it new type
 function setBoard(cellIndex, currBank) {
   boardArray[cellIndex[0]][cellIndex[1]] = currBank;
 }
+
+//------------------------------------------------------------------------------
+// intro-page off
+document.getElementById("intro-page-btn").addEventListener("click", () => {
+  document.getElementById("game-intro").style.display = "none";
+});
