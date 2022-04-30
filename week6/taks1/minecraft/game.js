@@ -59,7 +59,7 @@ function cellClick(e) {
     case "1":
       toolAction1(e);
       return;
-    case 2:
+    case "2":
       toolAction2(e);
       return;
     case 3:
@@ -71,42 +71,32 @@ function cellClick(e) {
 function toolAction1(e) {
   let currBank = bank.getAttribute("bank_value");
   let cellType = e.target.getAttribute("cell-type");
+  let cellIndex = e.target.getAttribute("cell-index").split(",");
   let currClass = e.target.classList[1];
 
   if (cellType == 3 || cellType == 4 || cellType == 5) return;
-
-  //------------ check if cell above is not sky
+  let cellBeforGroung = boardArray[parseInt(cellIndex[0]) - 1][cellIndex[1]];
+  if (cellBeforGroung != 1) {
+    return;
+  }
 
   if (currBank == EMPTY) {
-    let cellIndex = e.target.getAttribute("cell-index").split(",");
     bank.className = currClass;
 
-    //firt time switch
     setBoard(cellIndex, "1");
-    //add new new type to bank
     bank.setAttribute("bank_value", cellType);
   }
 
   if (currBank == "1") {
-    let cellIndex = e.target.getAttribute("cell-index").split(",");
-    let cellType = e.target.getAttribute("cell-type");
-
     if (cellType == "2") {
-      //firt time switch
       setBoard(cellIndex, currBank);
-      //add new new type to bank
       bank.setAttribute("bank_value", EMPTY);
     }
   }
 
   if (currBank == "2") {
-    let cellIndex = e.target.getAttribute("cell-index").split(",");
-    let cellType = e.target.getAttribute("cell-type");
-
     if (cellType == "1") {
-      //firt time switch
       setBoard(cellIndex, currBank);
-      //add new new type to bank
       bank.setAttribute("bank_value", EMPTY);
     }
   }
@@ -115,12 +105,45 @@ function toolAction1(e) {
     bank.className = "blank";
   }
 
-  console.log("new stae " + bank.getAttribute("bank_value"));
   board.innerHTML = "";
   cellsBuilder(board);
 }
 function toolAction2(e) {
-  console.log(e);
+  let currBank = bank.getAttribute("bank_value");
+  let cellType = e.target.getAttribute("cell-type");
+  let cellIndex = e.target.getAttribute("cell-index").split(",");
+  let currClass = e.target.classList[1];
+
+  if (cellType == 2 || cellType == 3) return;
+
+  if (currBank == EMPTY) {
+    if (cellType == 1) return;
+    bank.className = currClass;
+
+    setBoard(cellIndex, "1");
+    bank.setAttribute("bank_value", cellType);
+  }
+
+  if (currBank == "4") {
+    if (cellType == "5" || cellType == "1") {
+      setBoard(cellIndex, currBank);
+      bank.setAttribute("bank_value", EMPTY);
+    }
+  }
+
+  if (currBank == "5") {
+    if (cellType == "4" || cellType == "1") {
+      setBoard(cellIndex, currBank);
+      bank.setAttribute("bank_value", EMPTY);
+    }
+  }
+
+  if (bank.getAttribute("bank_value") == EMPTY) {
+    bank.className = "blank";
+  }
+
+  board.innerHTML = "";
+  cellsBuilder(board);
 }
 function toolAction3(e) {
   console.log(e);

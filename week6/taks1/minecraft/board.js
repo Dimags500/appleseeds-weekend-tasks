@@ -59,38 +59,28 @@ function woodBuilder(boardArray) {
 
 function leafsBuilder(boardArray) {
   for (let i = 3; i < 7; i++) {
-    for (let j = 12; j < 18; j++) {
+    for (let j = Math.floor(Math.random() * 5) + 10; j < 18; j++) {
       boardArray[i][j] = 5;
     }
   }
 }
 
-// function cellsBuilder(board) {
-//   for (let i = 0; i < 20; i++) {
-//     for (let j = 0; j < 20; j++) {
-//       let currCell = [i, j].toString();
-//       let cell = document.createElement("div");
-
-//       if (boardArray[i][j] == 1) {
-//         cell.classList.add("cell", "sky");
-//         cell.setAttribute("cell-type", "1");
-//       }
-//       if (boardArray[i][j] == 2) {
-//         cell.classList.add("cell", "ground");
-//         cell.setAttribute("cell-type", "2");
-//       }
-//       cell.setAttribute("cell-index", currCell);
-//       board.appendChild(cell);
-//     }
-//   }
-// }
-// let board = document.getElementById("game-board");
-// cellsBuilder(board);
+function cloudBuilder(boardArray) {
+  for (let i = 2; i < 7; i++) {
+    for (let j = 2; j < Math.floor(Math.random() * 10); j++) {
+      boardArray[i][j] = 0;
+    }
+    for (let j = 2; j < Math.floor(Math.random() * 10); j++) {
+      boardArray[i][j] = 0;
+    }
+  }
+}
 
 skyBulder(boardArray);
 groundBuilder(boardArray);
 woodBuilder(boardArray);
 leafsBuilder(boardArray);
 rockBuilder(boardArray);
+cloudBuilder(boardArray);
 
 export { boardArray };
