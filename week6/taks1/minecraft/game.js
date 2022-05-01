@@ -34,36 +34,34 @@ function toolAction1(e) {
   let cellBefor = boardArray[parseInt(cellIndex[0]) - 1][cellIndex[1]];
   let cellafter = boardArray[parseInt(cellIndex[0]) + 1][cellIndex[1]];
 
-  if (cellBefor != 1 || cellafter != 2) {
-    return;
-  }
-
-  if (currBank == EMPTY) {
-    bank.className = currClass;
-    setCell(cellIndex, "1");
-    bank.setAttribute("bank_value", cellType);
-  }
-
-  if (currBank == "1") {
-    if (cellType == "2") {
-      setCell(cellIndex, currBank);
-      bank.setAttribute("bank_value", EMPTY);
+  if (cellBefor == 1 && cellafter == 2) {
+    if (currBank == EMPTY) {
+      bank.className = currClass;
+      setCell(cellIndex, "1");
+      bank.setAttribute("bank_value", cellType);
     }
-  }
 
-  if (currBank == "2") {
-    if (cellType == "1") {
-      setCell(cellIndex, currBank);
-      bank.setAttribute("bank_value", EMPTY);
+    if (currBank == "1") {
+      if (cellType == "2") {
+        setCell(cellIndex, currBank);
+        bank.setAttribute("bank_value", EMPTY);
+      }
     }
-  }
 
-  if (bank.getAttribute("bank_value") == EMPTY) {
-    bank.className = "blank";
-  }
+    if (currBank == "2") {
+      if (cellType == "1") {
+        setCell(cellIndex, currBank);
+        bank.setAttribute("bank_value", EMPTY);
+      }
+    }
 
-  board.innerHTML = "";
-  cellsBuilder(board, cellClick);
+    if (bank.getAttribute("bank_value") == EMPTY) {
+      bank.className = "blank";
+    }
+
+    board.innerHTML = "";
+    cellsBuilder(board, cellClick);
+  }
 }
 function toolAction2(e) {
   let currBank = bank.getAttribute("bank_value");

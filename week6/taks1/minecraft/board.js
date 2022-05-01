@@ -21,7 +21,7 @@ let boardArray = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], //19
 ];
 
-function skyBulder(boardArray) {
+function skyFiller(boardArray) {
   for (let i = 0; i < 12; i++) {
     for (let j = 0; j < boardArray[i].length; j++) {
       boardArray[i][j] = 1;
@@ -29,7 +29,7 @@ function skyBulder(boardArray) {
   }
 }
 
-function groundBuilder(boardArray) {
+function groundFiller(boardArray) {
   for (let i = 12; i < 20; i++) {
     for (let j = 0; j < boardArray[i].length; j++) {
       boardArray[i][j] = 2;
@@ -37,7 +37,7 @@ function groundBuilder(boardArray) {
   }
 }
 
-function rockBuilder(boardArray) {
+function rockFiller(boardArray) {
   for (let i = 10; i < 12; i++) {
     for (let j = 8; j < 10; j++) {
       boardArray[i][j] = 3;
@@ -49,7 +49,7 @@ function rockBuilder(boardArray) {
   }
 }
 
-function woodBuilder(boardArray) {
+function woodFiller(boardArray) {
   for (let i = 7; i < 12; i++) {
     for (let j = 14; j < 16; j++) {
       boardArray[i][j] = 4;
@@ -57,7 +57,7 @@ function woodBuilder(boardArray) {
   }
 }
 
-function leafsBuilder(boardArray) {
+function leafsFiller(boardArray) {
   for (let i = 3; i < 7; i++) {
     for (let j = Math.floor(Math.random() * 5) + 10; j < 18; j++) {
       boardArray[i][j] = 5;
@@ -65,7 +65,7 @@ function leafsBuilder(boardArray) {
   }
 }
 
-function cloudBuilder(boardArray) {
+function cloudFiller(boardArray) {
   for (let i = 2; i < 7; i++) {
     for (let j = 2; j < Math.floor(Math.random() * 10); j++) {
       boardArray[i][j] = 0;
@@ -117,11 +117,11 @@ function setCell(cellIndex, currBank) {
   boardArray[cellIndex[0]][cellIndex[1]] = currBank;
 }
 
-skyBulder(boardArray);
-groundBuilder(boardArray);
-woodBuilder(boardArray);
-leafsBuilder(boardArray);
-rockBuilder(boardArray);
-cloudBuilder(boardArray);
+skyFiller(boardArray);
+groundFiller(boardArray);
+woodFiller(boardArray);
+leafsFiller(boardArray);
+rockFiller(boardArray);
+cloudFiller(boardArray);
 
 export { boardArray, cellsBuilder, setCell };
