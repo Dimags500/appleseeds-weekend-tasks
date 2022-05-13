@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="spinner">Data is loading .....</div>
+    <div id="info-bar"></div>
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+
+
+    <div id="status-btns">
+        <button id="satus-1">status 1</button>
+        <button id="status-2">status 2</button>
+        <button id="status-3">status 3</button>
+        <button id="status-4 ">status 4</button>
+
+    </div>
+
+    <div id="continents-btns">
+        <button id="Asia">Asia</button>
+        <button id="Europe">Europe</button>
+        <button id="Africa">Africa</button>
+        <button id="America">America</button>
+        <button id="Oceania">Oceania</button>
+        <button id="World">World</button>
+    </div>
+
+
+    <div id="coutries-list"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
+</body>
+
+</html>
