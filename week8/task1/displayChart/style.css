@@ -12,3 +12,12 @@
   
     font-size: 50px;
 }
+
+.country-item{
+
+    margin: 10px;
+}
+
+.country-item:hover{
+    cursor: pointer;
+}

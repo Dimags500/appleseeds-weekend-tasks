@@ -1,9 +1,12 @@
 import { regionsArr } from "../scripts/regions.js";
 import { statistic } from "./statistic.js";
 
+const countriesDiv = document.getElementById("countries-list");
 const spinner = document.getElementById("spinner");
 const continentsBtns = document.querySelector("#continents-btns");
+const statusBtns = document.querySelector("#status-btns");
 continentsBtns.addEventListener("click", continentsOnCklick);
+statusBtns.addEventListener("click", statusOnCklick);
 
 let obj = {};
 
@@ -16,56 +19,56 @@ for (let i = 0; i < regionsArr.length; i++) {
   }
 }
 let continents = Object.entries(obj);
+let worldStatistic = [];
+let currCountries = [];
+let currStatus = "confirmed";
 
 function continentsOnCklick(e) {
   let continent = e.target.id;
-  displayContinent(continent, statistic.data, continents, getCountriesBycodes);
+
+  if (continent === "World") {
+    setCurrData(worldStatistic.data, currStatus);
+    return;
+  }
+  for (let i = 0; i < continents.length; i++) {
+    if (continents[i][0] === continent) {
+      getCountriesBycodes([continent, continents[i][1].split(",")]);
+    }
+  }
+
+  setCurrData(currCountries, currStatus);
 }
 
-// let continents = Object.entries(obj);
-
-// for (let i = 0; i < continents.length; i++) {
-//   const codes = continents[i][1].split(",");
-//   getCountriesBycodes(codes);
-// }
+function statusOnCklick(e) {
+  let status = e.target.id;
+  currStatus = status;
+  setCurrData(currCountries, currStatus);
+}
 
 async function getAllStatistics() {
   const url = "https://corona-api.com/countries";
   const response = await axios.get(url);
   worldStatistic = response.data;
 }
-// let worldStatistic = [];
-// getAllStatistics();
+getAllStatistics();
 
 setTimeout(() => {
-  //   console.log(worldStatistic);
   spinner.style.display = "none";
 }, 1000);
-
-function displayContinent(continent, data, continents, callback) {
-  let prevRequest;
-
-  if (continent === "World") {
-    displayCanvas(statistic.data);
-  }
-  for (let i = 0; i < continents.length; i++) {
-    if (continents[i][0] === continent) {
-      callback([continent, continents[i][1].split(",")]);
-    }
-  }
-}
 
 function getCountriesBycodes(data) {
   let codes = data[1];
 
-  let counties = codes.map((c) => {
-    return statistic.data.find((i) => i.code == c);
+  let counties = codes.map((code) => {
+    return worldStatistic.data.find((item) => item.code == code);
   });
 
-  displayCanvas(counties);
+  currCountries = counties;
 }
 
-function displayCanvas(data) {
+function setCurrData(data, displayStatus) {
+  currCountries = data;
+
   let names = data.map((item) => {
     if (item == undefined) {
       return;
@@ -79,39 +82,29 @@ function displayCanvas(data) {
     }
     return item.latest_data;
   });
-  call(names, numbers);
-}
 
-function call(names, numbers) {
-  console.log(numbers);
-
-  console.log(names);
-
-  let confirmed = []; //= Object.entries(numbers).flat();
+  let status = [];
 
   for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] === undefined || numbers[i] === null) {
       continue;
     }
-
-    confirmed.push(numbers[i].confirmed);
+    status.push(numbers[i][displayStatus]);
   }
 
-  console.log(confirmed);
+  canvas(names, status);
+  drawCountriesList(names);
+}
 
+function canvas(names, status) {
   new Chart("myChart", {
     type: "line",
     data: {
       labels: names,
       datasets: [
         {
-          data: confirmed,
+          data: status,
           borderColor: "red",
-          fill: false,
-        },
-        {
-          data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 5000, 6000, 7000],
-          borderColor: "green",
           fill: false,
         },
       ],
@@ -120,4 +113,22 @@ function call(names, numbers) {
       legend: { display: false },
     },
   });
+}
+
+function drawCountriesList(countries) {
+  countriesDiv.innerText = "";
+
+  for (let i = 0; i < countries.length; i++) {
+    const span = document.createElement("span");
+    span.classList.add("country-item");
+    span.setAttribute("id", countries[i]);
+    span.innerText = countries[i];
+
+    span.addEventListener("click", onCountrieClick);
+    countriesDiv.append(span);
+  }
+}
+
+function onCountrieClick(e) {
+  console.log(e.target.id);
 }
