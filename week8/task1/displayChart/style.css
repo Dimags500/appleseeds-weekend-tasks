@@ -13,6 +13,30 @@
     font-size: 50px;
 }
 
+
+#countiresChart{
+    width: 100%;
+}
+
+#status-btns{
+
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+#continents-btns{
+
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+
+#countries-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .country-item{
 
     margin: 10px;
@@ -20,4 +44,12 @@
 
 .country-item:hover{
     cursor: pointer;
+    background-color: antiquewhite;
 }
+
+#info-bar{
+
+    display: flex;
+    justify-content: space-evenly;
+}
+

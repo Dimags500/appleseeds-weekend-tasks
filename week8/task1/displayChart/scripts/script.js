@@ -1,27 +1,79 @@
 import { regionsArr } from "../scripts/regions.js";
 import { statistic } from "./statistic.js";
 
-const countriesDiv = document.getElementById("countries-list");
+const countriesList = document.getElementById("countries-list");
+
 const spinner = document.getElementById("spinner");
+const coutryInfo = document.getElementById("info-bar");
 const continentsBtns = document.querySelector("#continents-btns");
 const statusBtns = document.querySelector("#status-btns");
 continentsBtns.addEventListener("click", continentsOnCklick);
 statusBtns.addEventListener("click", statusOnCklick);
 
-let obj = {};
+const totalCases = document.getElementById("total-cases");
+const newCases = document.getElementById("new-cases");
+const totalDeaths = document.getElementById("total-deaths");
+const newDeths = document.getElementById("new-deths");
+const totalRecovered = document.getElementById("total-recovered");
+const critical = document.getElementById("critical");
 
-for (let i = 0; i < regionsArr.length; i++) {
-  if (obj[regionsArr[i].region] === undefined) {
-    obj[regionsArr[i].region] = "";
-  }
-  if (regionsArr[i].cca2 != undefined) {
-    obj[regionsArr[i].region] += regionsArr[i].cca2 + ",";
-  }
-}
-let continents = Object.entries(obj);
+//---------------------------------------------
 let worldStatistic = [];
+let worldContinents = [];
+let continents;
+
 let currCountries = [];
 let currStatus = "confirmed";
+
+async function getAllContinents() {
+  const mask = "https://nameless-citadel-58066.herokuapp.com/";
+  const url = "https://restcountries.herokuapp.com/api/v1";
+
+  const response = await axios.get(mask + url);
+  worldContinents = response.data;
+
+  continents = groupeCoutriesByContinent(worldContinents);
+}
+
+async function getAllStatistics() {
+  const url = "https://corona-api.com/countries";
+  const response = await axios.get(url);
+  worldStatistic = response.data;
+}
+getAllStatistics();
+getAllContinents();
+
+setTimeout(() => {
+  spinner.style.display = "none";
+}, 1000);
+
+function groupeCoutriesByContinent(worldContinents) {
+  //   let obj = {};
+
+  //   for (let i = 0; i < regionsArr.length; i++) {
+  //     if (obj[regionsArr[i].region] === undefined) {
+  //       obj[regionsArr[i].region] = "";
+  //     }
+  //     if (regionsArr[i].cca2 != undefined) {
+  //       obj[regionsArr[i].region] += regionsArr[i].cca2 + ",";
+  //     }
+  //   }
+
+  // return Object.entries(obj);
+
+  let obj = {};
+
+  for (let i = 0; i < worldContinents.length; i++) {
+    if (obj[worldContinents[i].region] === undefined) {
+      obj[worldContinents[i].region] = "";
+    }
+    if (worldContinents[i].cca2 != undefined) {
+      obj[worldContinents[i].region] += worldContinents[i].cca2 + ",";
+    }
+  }
+
+  return Object.entries(obj);
+}
 
 function continentsOnCklick(e) {
   let continent = e.target.id;
@@ -45,16 +97,7 @@ function statusOnCklick(e) {
   setCurrData(currCountries, currStatus);
 }
 
-async function getAllStatistics() {
-  const url = "https://corona-api.com/countries";
-  const response = await axios.get(url);
-  worldStatistic = response.data;
-}
-getAllStatistics();
-
-setTimeout(() => {
-  spinner.style.display = "none";
-}, 1000);
+//------------------------------------------
 
 function getCountriesBycodes(data) {
   let codes = data[1];
@@ -63,21 +106,21 @@ function getCountriesBycodes(data) {
     return worldStatistic.data.find((item) => item.code == code);
   });
 
-  currCountries = counties;
+  currCountries = counties.filter((item) => item != undefined);
 }
 
 function setCurrData(data, displayStatus) {
   currCountries = data;
 
   let names = data.map((item) => {
-    if (item == undefined) {
+    if (item === undefined) {
       return;
     }
     return item.name;
   });
 
   let numbers = data.map((item) => {
-    if (item == undefined) {
+    if (item === undefined) {
       return;
     }
     return item.latest_data;
@@ -97,7 +140,7 @@ function setCurrData(data, displayStatus) {
 }
 
 function canvas(names, status) {
-  new Chart("myChart", {
+  new Chart("countiresChart", {
     type: "line",
     data: {
       labels: names,
@@ -116,7 +159,7 @@ function canvas(names, status) {
 }
 
 function drawCountriesList(countries) {
-  countriesDiv.innerText = "";
+  countriesList.innerText = "";
 
   for (let i = 0; i < countries.length; i++) {
     const span = document.createElement("span");
@@ -125,10 +168,51 @@ function drawCountriesList(countries) {
     span.innerText = countries[i];
 
     span.addEventListener("click", onCountrieClick);
-    countriesDiv.append(span);
+    countriesList.append(span);
   }
 }
 
 function onCountrieClick(e) {
-  console.log(e.target.id);
+  let name = e.target.id;
+  let code = currCountries.find((item) => item.name == name).code.toString();
+
+  if (code === undefined) {
+    alert(code);
+  }
+
+  const mask = "https://nameless-citadel-58066.herokuapp.com/";
+  const url = "http://corona-api.com/countries/";
+
+  // const response = axios.get(
+  //   mask + url + code
+  // );
+
+  // console.log(response);
+
+  let data;
+  fetch(mask + url + code)
+    .then((res) => res.json())
+    .then((res) => (data = res.data))
+    .catch((error) => alert(error));
+
+  spinner.style.display = "block";
+  setTimeout(() => {
+    drawCountiryInfo(data);
+    spinner.style.display = "none";
+  }, 1000);
+}
+
+function drawCountiryInfo(data) {
+  if (data.latest_data.critical !== undefined) {
+    critical.innerText = data.latest_data.critical;
+  }
+
+  if (data.timeline[0].recovered !== undefined) {
+    totalRecovered.innerText = data.timeline[0].recovered;
+  }
+  if (data.timeline[0].new_confirmed !== undefined) {
+    newCases.innerText = data.timeline[0].new_confirmed;
+  }
+  // console.log(data.data.timeline);
+  console.log(data);
 }
