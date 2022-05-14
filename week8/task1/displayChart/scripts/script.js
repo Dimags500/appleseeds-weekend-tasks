@@ -213,6 +213,18 @@ function drawCountiryInfo(data) {
   if (data.timeline[0].new_confirmed !== undefined) {
     newCases.innerText = data.timeline[0].new_confirmed;
   }
+
+  if (data.timeline[0].deaths !== undefined) {
+    totalDeaths.innerText = data.timeline[0].deaths;
+  }
+
+  if (data.timeline[0].new_deaths !== undefined) {
+    newDeths.innerText = data.timeline[0].new_deaths;
+  }
+
+  if (data.timeline[0].active !== undefined) {
+    totalCases.innerText = data.timeline[0].active;
+  }
   // console.log(data.data.timeline);
   console.log(data);
 }
