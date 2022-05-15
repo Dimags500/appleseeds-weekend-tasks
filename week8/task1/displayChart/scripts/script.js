@@ -27,7 +27,7 @@ async function getAllContinents() {
   const url = "https://restcountries.herokuapp.com/api/v1";
 
   const response = await axios.get(mask + url);
-  worldContinents = response.data;
+  worldContinents = await response.data;
 
   continents = groupeCountriesByContinent(worldContinents);
 }
@@ -196,19 +196,20 @@ function showCountiryInfo(data) {
   } catch (error) {}
 }
 
-function getCountrieInfo(code) {
+async function getCountrieInfo(code) {
   const mask = "https://nameless-citadel-58066.herokuapp.com/";
   const url = "http://corona-api.com/countries/";
 
-  let data;
-  fetch(mask + url + code)
-    .then((res) => res.json())
-    .then((res) => (data = res.data))
-    .catch((error) => alert(error));
-
-  spinner.style.display = "block";
-  setTimeout(() => {
-    showCountiryInfo(data);
-    spinner.style.display = "none";
-  }, 1000);
+  try {
+    let response = await fetch(mask + url + code);
+    let data = await response.json();
+    let info = await data.data;
+    spinner.style.display = "block";
+    setTimeout(() => {
+      showCountiryInfo(info);
+      spinner.style.display = "none";
+    }, 1000);
+  } catch (error) {
+    alert(error);
+  }
 }
