@@ -1,9 +1,17 @@
+import {
+  getAllContinents,
+  getAllStatistics,
+  getCountrieInfo,
+  getStatisticsAndContinents,
+} from "./apiCalls.js";
+
 const countriesList = document.getElementById("countries-list");
 
 const spinner = document.getElementById("spinner");
 const coutryInfo = document.getElementById("info-bar");
 const continentsBtns = document.querySelector("#continents-btns");
 const statusBtns = document.querySelector("#status-btns");
+//-------
 continentsBtns.addEventListener("click", continentsOnCklick);
 statusBtns.addEventListener("click", statusOnCklick);
 
@@ -15,34 +23,30 @@ const totalRecovered = document.getElementById("total-recovered");
 const critical = document.getElementById("critical");
 
 //---------------------------------------------
+//
 let worldStatistic = [];
 let worldContinents = [];
-let continents;
+let continents = {};
 
 let currCountries = [];
 let currStatus = "confirmed";
 
-async function getAllContinents() {
-  const mask = "https://nameless-citadel-58066.herokuapp.com/";
-  const url = "https://restcountries.herokuapp.com/api/v1";
+const state = {};
 
-  const response = await axios.get(mask + url);
-  worldContinents = await response.data;
+init();
+async function init() {
+  // worldStatistic = await getAllStatistics();
+  // worldContinents = await getAllContinents();
+
+  let response = await getStatisticsAndContinents();
+
+  worldStatistic = response[0].data;
+  worldContinents = response[1].data;
 
   continents = groupeCountriesByContinent(worldContinents);
-}
 
-async function getAllStatistics() {
-  const url = "https://corona-api.com/countries";
-  const response = await axios.get(url);
-  worldStatistic = response.data;
+  // console.log(d);
 }
-getAllStatistics();
-getAllContinents();
-
-setTimeout(() => {
-  spinner.style.display = "none";
-}, 1000);
 
 function groupeCountriesByContinent(worldContinents) {
   let obj = {};
@@ -81,10 +85,12 @@ function statusOnCklick(e) {
   setCurrData(currCountries, currStatus);
 }
 
-function onCountrieClick(e) {
+async function onCountrieClick(e) {
   let name = e.target.id;
   let code = currCountries.find((item) => item.name == name).code.toString();
-  getCountrieInfo(code);
+  let info = await getCountrieInfo(code);
+
+  showCountiryInfo(info);
 }
 
 //------------------------------------------
@@ -196,20 +202,4 @@ function showCountiryInfo(data) {
   } catch (error) {}
 }
 
-async function getCountrieInfo(code) {
-  const mask = "https://nameless-citadel-58066.herokuapp.com/";
-  const url = "http://corona-api.com/countries/";
-
-  try {
-    let response = await fetch(mask + url + code);
-    let data = await response.json();
-    let info = await data.data;
-    spinner.style.display = "block";
-    setTimeout(() => {
-      showCountiryInfo(info);
-      spinner.style.display = "none";
-    }, 1000);
-  } catch (error) {
-    alert(error);
-  }
-}
+// -
