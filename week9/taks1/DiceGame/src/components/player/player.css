@@ -1,0 +1,10 @@
+
+.player{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+    border: 2px solid white;
+    padding: 20px;
+}

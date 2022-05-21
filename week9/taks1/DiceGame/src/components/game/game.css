@@ -1,0 +1,9 @@
+
+
+.palyers-board{
+    display: flex;
+    justify-content: space-around;
+    background-color:darkorange;
+    padding: 10px;
+    margin-top: 10px;
+}

@@ -11,9 +11,9 @@ class Dice extends React.Component {
     this.generateRandomDice();
   }
 
-  componentDidUpdate() {
+  callbackToGame = () => {
     this.props.callback([this.state.dice1, this.state.dice2]);
-  }
+  };
   randomNumber() {
     let min = Math.ceil(1);
     let max = Math.floor(6);
@@ -36,6 +36,7 @@ class Dice extends React.Component {
   onClickHandler = () => {
     // e.preventDefault();
     this.generateRandomDice();
+    this.callbackToGame();
   };
 
   render() {
