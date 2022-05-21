@@ -15,79 +15,61 @@ class Game extends React.Component {
       currPlayer: 1,
       currDice: 0,
       gameEndCondition: 100,
+      canPlay: false,
     };
   }
 
-  initPlayers() {
-    let arr = [
-      { playerId: 1, currScore: 0, holdScore: 0 },
-      { playerId: 2, currScore: 0, holdScore: 0 },
-    ];
-    this.setState(() => {
-      return { players: arr };
-    });
-  }
-
-  componentDidMount() {
-    // this.initPlayers();
-  }
-
   diceNumbersCallback = (data) => {
-    console.log("---------");
-
-    setTimeout(() => {
-      this.setCurrDice(data);
-    }, 200);
+    this.setCurrDice(data);
   };
-
-  updateToggle(bool) {
-    this.setState((prev) => {
-      return { update: bool };
-    });
-  }
 
   setCurrDice = (data) => {
     this.setState(() => {
       return { currDice: data[0] + data[1] };
     });
 
-    this.setCurrPlayerScore();
+    this.setCurrScore();
   };
 
-  setCurrPlayerScore = () => {
-    setTimeout(() => {
-      let arr = [...this.state.players];
-      for (let i = 0; i < arr.length; i++) {
-        if (arr[i].playerId === this.state.currPlayer) {
-          arr[i].currScore += this.state.currDice;
-        }
+  setCurrScore = () => {
+    let arr = [...this.state.players];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].playerId === this.state.currPlayer) {
+        arr[i].currScore += this.state.currDice;
+        this.winnerCheck([arr[i], this.state.currDice]);
       }
+    }
 
-      console.log(arr);
-
-      this.setState(() => {
-        return { players: arr };
-      });
-    }, 200);
-
-    // this.setState({ players: update });
+    this.setState(() => {
+      return { players: arr };
+    });
   };
 
   holdCLlickHandler() {
-    console.log("---");
+    if (this.state.currDice === 0) {
+      return;
+    }
 
+    this.setHoldScore();
+    this.setCurrPlayer();
+
+    this.setState(() => {
+      return { currDice: 0 };
+    });
+  }
+
+  setHoldScore() {
     let arr = [...this.state.players];
     for (let i = 0; i < arr.length; i++) {
       arr[i].active = true;
       if (arr[i].playerId === this.state.currPlayer) {
-        arr[i].holdScore += arr[i].currScore;
+        arr[i].holdScore = arr[i].currScore;
         arr[i].active = false;
       }
     }
     this.setState(() => {
       return { players: arr };
     });
-    this.setCurrPlayer();
   }
 
   setCurrPlayer() {
@@ -101,8 +83,19 @@ class Game extends React.Component {
     });
   }
 
+  winnerCheck(data) {
+    if (data[0].currScore + data[1] >= this.state.gameEndCondition) {
+      alert("loose" + data[0].playerId);
+      //   localStorage.setItem("player1", 1);
+      // eslint-disable-next-line no-restricted-globals
+      location.reload();
+    }
+    return true;
+  }
+
   componentDidUpdate() {
     console.log("currPlayer " + this.state.currPlayer);
+    console.log("currdice" + this.state.currDice);
   }
 
   render() {
@@ -124,13 +117,36 @@ class Game extends React.Component {
           />
         </div>
 
-        <div className="hold-btn-section">
+        <div className=" section" id="hold-btn">
           <button
             onClick={() => {
               this.holdCLlickHandler();
             }}
           >
             Hold
+          </button>
+        </div>
+
+        <div className=" section" id="condition-input">
+          <input
+            type="text"
+            placeholder="Enter Number and Click On It "
+            onClick={(e) => {
+              if (e.target.value > 0) {
+                this.setState(() => {
+                  return { gameEndCondition: e.target.value };
+                });
+                e.target.disabled = "true";
+              }
+            }}
+          />
+        </div>
+        <div className=" section" id="newGame-btn">
+          <button
+            // eslint-disable-next-line no-restricted-globals
+            onClick={() => location.reload()}
+          >
+            New Game
           </button>
         </div>
       </div>

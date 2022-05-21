@@ -35,8 +35,11 @@ class Dice extends React.Component {
 
   onClickHandler = () => {
     // e.preventDefault();
-    this.generateRandomDice();
-    this.callbackToGame();
+
+    setTimeout(() => {
+      this.generateRandomDice();
+      this.callbackToGame();
+    }, 500);
   };
 
   render() {

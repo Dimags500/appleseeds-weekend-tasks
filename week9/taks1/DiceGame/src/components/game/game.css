@@ -9,18 +9,38 @@
 }
 
 
-.hold-btn-section{
+.section{
     margin-top: 10px;
     padding: 10px;
     display: flex; 
     justify-content: center;
     align-items: center;
+}
+
+#hold-btn{
+ 
     background-color:rgb(61, 82, 19)
 }
 
-.hold-btn-section button {
+#hold-btn button {
 
     width: 150px;
     height: 25px;
     border-style: flat;
+}
+
+#newGame-btn {
+  
+    background-color: yellow;
+}
+#newGame-btn button {
+
+    width: 150px;
+    height: 25px;
+    border-style: flat;
+}
+
+
+#condition-input{
+    background-color:brown;
 }
