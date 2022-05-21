@@ -6,9 +6,12 @@ class Player extends React.Component {
 
   render() {
     return (
-      <div className="player">
+      <div
+        className="player"
+        style={this.props.active ? { border: "4px black dotted" } : {}}
+      >
         <h2>Player {this.props.playerId}</h2>
-        <div> currScore </div>
+        <div> </div>
         <div> {this.props.currScore}</div>
         <div> holdScore </div>
         <div> {this.props.holdScore}</div>

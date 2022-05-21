@@ -7,3 +7,20 @@
     padding: 10px;
     margin-top: 10px;
 }
+
+
+.hold-btn-section{
+    margin-top: 10px;
+    padding: 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(61, 82, 19)
+}
+
+.hold-btn-section button {
+
+    width: 150px;
+    height: 25px;
+    border-style: flat;
+}

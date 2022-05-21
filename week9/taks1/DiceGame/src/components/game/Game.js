@@ -9,12 +9,12 @@ class Game extends React.Component {
     this.setCurrDice.bind(this);
     this.state = {
       players: [
-        { playerId: 1, currScore: 0, holdScore: 0 },
-        { playerId: 2, currScore: 0, holdScore: 0 },
+        { playerId: 1, currScore: 0, holdScore: 0, active: true },
+        { playerId: 2, currScore: 0, holdScore: 0, active: false },
       ],
       currPlayer: 1,
       currDice: 0,
-      update: false,
+      gameEndCondition: 100,
     };
   }
 
@@ -78,17 +78,31 @@ class Game extends React.Component {
 
     let arr = [...this.state.players];
     for (let i = 0; i < arr.length; i++) {
+      arr[i].active = true;
       if (arr[i].playerId === this.state.currPlayer) {
         arr[i].holdScore += arr[i].currScore;
-        arr[i].currScore = 0;
+        arr[i].active = false;
       }
     }
-
-    console.log(arr);
-
     this.setState(() => {
       return { players: arr };
     });
+    this.setCurrPlayer();
+  }
+
+  setCurrPlayer() {
+    this.setState((prev) => {
+      if (prev.currPlayer === 1) {
+        return { currPlayer: 2 };
+      }
+      if (prev.currPlayer === 2) {
+        return { currPlayer: 1 };
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    console.log("currPlayer " + this.state.currPlayer);
   }
 
   render() {
@@ -100,15 +114,17 @@ class Game extends React.Component {
             playerId="1"
             currScore={this.state.players[0].currScore}
             holdScore={this.state.players[0].holdScore}
+            active={this.state.players[0].active}
           />
           <Player
             playerId="2"
             currScore={this.state.players[1].currScore}
             holdScore={this.state.players[1].holdScore}
+            active={this.state.players[1].active}
           />
         </div>
 
-        <div>
+        <div className="hold-btn-section">
           <button
             onClick={() => {
               this.holdCLlickHandler();
@@ -116,7 +132,6 @@ class Game extends React.Component {
           >
             Hold
           </button>
-          <p>{this.state.currDice}</p>
         </div>
       </div>
     );

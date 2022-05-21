@@ -53,16 +53,15 @@ class Dice extends React.Component {
             className="dice"
             src={require("./imges/dice-" + this.state.dice2 + ".png")}
           />
-
-          <div className="dice-btn">
-            <button
-              onClick={() => {
-                this.onClickHandler();
-              }}
-            >
-              Go Dice
-            </button>
-          </div>
+        </div>
+        <div className="dice-btn">
+          <button
+            onClick={() => {
+              this.onClickHandler();
+            }}
+          >
+            Go Dice
+          </button>
         </div>
       </div>
     );

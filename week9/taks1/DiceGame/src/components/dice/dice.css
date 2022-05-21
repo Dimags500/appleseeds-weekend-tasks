@@ -14,5 +14,17 @@
 }
 
 .dice-btn{
-    
+    margin-top: 10px;
+    padding: 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+}
+
+.dice-btn button {
+
+    width: 150px;
+    height: 25px;
+    border-style: flat;
 }
