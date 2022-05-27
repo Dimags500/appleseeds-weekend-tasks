@@ -3,6 +3,7 @@ import {
   getProductRequest,
   createProductRequest,
   updateProductRequest,
+  deleteProductRequest,
 } from "./requests";
 
 export const hendlerGetProducts = async () => {
@@ -12,12 +13,12 @@ export const hendlerGetProducts = async () => {
 
     return products;
   } catch (error) {
-    console.log(error);
+    alert(error);
   }
 };
 
 export const hendlerGetProduct = async (id) => {
-  const res = await fetch(getProductRequest.url + "/", getProductRequest);
+  const res = await fetch(getProductRequest.url + "/" + id, getProductRequest);
 
   return await res.json();
 };
@@ -34,4 +35,17 @@ export const hendlerUpdateProduct = async (id, body) => {
   const res = await fetch(updateProductRequest.url + "/", updateProductRequest);
 
   return await res.json();
+};
+
+export const hendlerDeleteProduct = async (id) => {
+  try {
+    const res = await fetch(
+      deleteProductRequest.url + "/" + id,
+      deleteProductRequest
+    );
+    console.log(res);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
 };

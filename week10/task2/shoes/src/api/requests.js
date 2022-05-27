@@ -14,3 +14,7 @@ export const createProductRequest = new Request(BASE_URL + "/products", {
 export const updateProductRequest = new Request(BASE_URL + "/products", {
   method: "PUT",
 });
+
+export const deleteProductRequest = new Request(BASE_URL + "/products", {
+  method: "DELETE",
+});
