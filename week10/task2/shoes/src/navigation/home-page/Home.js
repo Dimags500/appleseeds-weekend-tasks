@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { hendlerGetProducts } from "../../api/hendlers";
 import Spinner from "../../utils/spinner/Sppinner";
 import "./Home.css";
+import Item from "./item-page/Item";
 
 class Home extends React.Component {
   constructor() {
@@ -20,17 +21,7 @@ class Home extends React.Component {
 
   showItems() {
     return this.state.products.map((item) => {
-      return (
-        <div key={item.id} className="item">
-          <Link to={"/product/" + item.id}>
-            <img src={item.image} alt={item.name}></img>
-          </Link>
-
-          <Link to={"/product/" + item.id}>
-            <h3>{item.name}</h3>
-          </Link>
-        </div>
-      );
+      return <Item key={item.id} product={item} />;
     });
   }
 

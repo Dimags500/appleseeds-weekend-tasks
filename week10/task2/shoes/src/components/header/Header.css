@@ -1,0 +1,27 @@
+
+
+
+.header{
+
+    box-sizing: border-box;
+    background-color: blue;
+    color: aliceblue;
+    /* height: 3rem; */
+    display: flex;
+
+    align-items: center;
+    margin: 20px;
+}
+
+.header-item{
+
+    color: aliceblue;
+    padding: 20px;
+
+
+}
+
+.header-item:hover{
+    background-color: azure;
+    color: black;
+}

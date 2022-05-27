@@ -6,16 +6,3 @@
     justify-content: space-around;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px;
-}
-
-
-.item img {
-    width: 250px;
-    height: 250px;
-
-}

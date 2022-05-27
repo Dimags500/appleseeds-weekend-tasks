@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDom from "react-dom";
-import { BrowserRouter, Route } from "react-router-dom";
-import { hendlerGetProducts } from "../api/hendlers";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "../navigation/home-page/Home";
 import Header from "./header/Header";
+import "./App.css";
+import ItemDeteils from "../navigation/item-deteils/ItemDeteils";
+import About from "../navigation/about-page/About";
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +18,18 @@ class App extends React.Component {
       <div className="ui container">
         <BrowserRouter>
           <Header />
-          <Home />
+
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/product/:id">
+              <ItemDeteils />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
         </BrowserRouter>
       </div>
     );
