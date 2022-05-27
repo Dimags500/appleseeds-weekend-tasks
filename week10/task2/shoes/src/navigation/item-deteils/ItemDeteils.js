@@ -26,6 +26,10 @@ class ItemDeteils extends React.Component {
     }
   };
 
+  editOnClickHendler = () => {
+    this.props.history.push("/edit", this.state.product);
+  };
+
   render() {
     if (!this.state.product) {
       return <Spinner />;
@@ -34,7 +38,7 @@ class ItemDeteils extends React.Component {
         <div>
           <Item product={this.state.product} />
           <div>
-            <button>Edit</button>
+            <button onClick={this.editOnClickHendler}>Edit</button>
             <button onClick={this.deleteOnClickHendler}>Delete</button>
           </div>
         </div>

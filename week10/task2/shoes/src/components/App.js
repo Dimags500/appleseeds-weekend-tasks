@@ -5,6 +5,7 @@ import Header from "./header/Header";
 import "./App.css";
 import ItemDeteils from "../navigation/item-deteils/ItemDeteils";
 import About from "../navigation/about-page/About";
+import Form from "./form/Form";
 
 class App extends React.Component {
   constructor() {
@@ -24,6 +25,8 @@ class App extends React.Component {
               <About />
             </Route>
             <Route path="/product/:id" component={ItemDeteils} />
+            <Route path="/create" component={Form} />
+            <Route path="/edit" component={Form} />
 
             <Route path="/">
               <Home />

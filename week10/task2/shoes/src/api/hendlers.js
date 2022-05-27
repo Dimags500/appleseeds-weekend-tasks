@@ -24,9 +24,9 @@ export const hendlerGetProduct = async (id) => {
 };
 
 export const hendlerCreateProduct = async (body) => {
-  createProductRequest.body = JSON.stringify();
+  createProductRequest.body = JSON.stringify(body);
   const res = await fetch(createProductRequest.url, createProductRequest);
-
+  console.log(res);
   return await res.json();
 };
 
