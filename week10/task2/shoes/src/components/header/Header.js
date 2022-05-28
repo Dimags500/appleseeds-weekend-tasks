@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, NavLink } from "react-router-dom";
 import "./Header.css";
 
 class Header extends React.Component {
@@ -15,9 +15,9 @@ class Header extends React.Component {
           </Link>
         </div>
 
-        <Link className="header-item new-item" to="/create">
+        <NavLink className="header-item new-item" to="/create">
           + New Item
-        </Link>
+        </NavLink>
       </div>
     );
   }

@@ -25,7 +25,7 @@ class Home extends React.Component {
   }
 
   render() {
-    if (this.state.products.length < 1) {
+    if (this.state.products.length <= 0) {
       return <Spinner />;
     } else {
       return <div className="main">{this.showItems()}</div>;
