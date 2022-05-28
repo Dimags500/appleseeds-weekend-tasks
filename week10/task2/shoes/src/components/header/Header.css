@@ -10,7 +10,7 @@
     display: flex;
 
     align-items: center;
-    margin: 20px;
+    justify-content: space-between;
 }
 
 .header-item{
@@ -24,4 +24,8 @@
 .header-item:hover{
     background-color: azure;
     color: black;
+}
+.new-item{
+    background-color: green;
+
 }

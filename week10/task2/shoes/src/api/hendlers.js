@@ -6,6 +6,8 @@ import {
   deleteProductRequest,
 } from "./requests";
 
+import axios from "axios";
+
 export const hendlerGetProducts = async () => {
   try {
     const res = await fetch(getProductsRequest);
@@ -19,22 +21,15 @@ export const hendlerGetProducts = async () => {
 
 export const hendlerGetProduct = async (id) => {
   const res = await fetch(getProductRequest.url + "/" + id, getProductRequest);
-
   return await res.json();
 };
 
 export const hendlerCreateProduct = async (body) => {
-  createProductRequest.body = JSON.stringify(body);
-  const res = await fetch(createProductRequest.url, createProductRequest);
-  console.log(res);
-  return await res.json();
+  return await axios.post(createProductRequest.url, body);
 };
 
 export const hendlerUpdateProduct = async (id, body) => {
-  createProductRequest.body = JSON.stringify();
-  const res = await fetch(updateProductRequest.url + "/", updateProductRequest);
-
-  return await res.json();
+  return await axios.put(updateProductRequest.url + "/" + id, body);
 };
 
 export const hendlerDeleteProduct = async (id) => {
@@ -43,7 +38,6 @@ export const hendlerDeleteProduct = async (id) => {
       deleteProductRequest.url + "/" + id,
       deleteProductRequest
     );
-    console.log(res);
     return await res.json();
   } catch (error) {
     console.log(error);

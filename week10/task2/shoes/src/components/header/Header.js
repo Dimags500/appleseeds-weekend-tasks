@@ -8,13 +8,16 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <Link className="header-item" to="/">
-          Home
-        </Link>
-        <Link className="header-item" to="/about">
-          About
-        </Link>
-        <Link className="header-item" to="/create">
+        <div>
+          <Link className="header-item" to="/">
+            Home
+          </Link>
+          <Link className="header-item" to="/about">
+            About
+          </Link>
+        </div>
+
+        <Link className="header-item new-item" to="/create">
           + New Item
         </Link>
       </div>

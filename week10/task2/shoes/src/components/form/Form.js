@@ -1,5 +1,5 @@
 import React from "react";
-import { hendlerCreateProduct } from "../../api/hendlers";
+import { hendlerCreateProduct, hendlerUpdateProduct } from "../../api/hendlers";
 
 class Form extends React.Component {
   constructor() {
@@ -26,7 +26,7 @@ class Form extends React.Component {
     this.imageRef.current.value = this.state.product.image;
   }
 
-  onSubmitHendler = (e) => {
+  onSubmitHendler = async (e) => {
     e.preventDefault();
 
     let data = {
@@ -35,25 +35,28 @@ class Form extends React.Component {
     };
 
     if (this.state.status === "create") {
-      hendlerCreateProduct(data);
+      await hendlerCreateProduct(data);
     }
     if (this.state.status === "edit") {
+      await hendlerUpdateProduct(this.state.product.id, data);
     }
+
+    this.props.history.push("/");
   };
 
   render() {
     return (
       <div>
+        <h3> this is {this.state.status} mode</h3>
         <form>
-          <labal>Name</labal>
+          <label>Name</label>
           <input type="text" ref={this.nameRef} />
-          <labal>Image</labal>
+          <label>Image</label>
           <input type="text" ref={this.imageRef} />
           <button type="submit" onClick={this.onSubmitHendler}>
             Submit{" "}
           </button>
         </form>
-        {this.state.status}
       </div>
     );
   }
