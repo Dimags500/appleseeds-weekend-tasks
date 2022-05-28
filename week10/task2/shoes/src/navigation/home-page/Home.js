@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { hendlerGetProducts } from "../../api/hendlers";
 import Spinner from "../../utils/spinner/Sppinner";
 import "./Home.css";
-import Item from "./item-page/Item";
+import Item from "../../components/item/Item";
 
 class Home extends React.Component {
   constructor() {

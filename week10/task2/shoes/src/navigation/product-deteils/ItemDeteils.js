@@ -1,6 +1,6 @@
 import React from "react";
-import { hendlerGetProduct, hendlerDeleteProduct } from "./../../api/hendlers";
-import Item from "../home-page/item-page/Item";
+import { hendlerGetProduct, hendlerDeleteProduct } from "../../api/hendlers";
+import Item from "../../components/item/Item";
 import Spinner from "../../utils/spinner/Sppinner";
 
 class ItemDeteils extends React.Component {

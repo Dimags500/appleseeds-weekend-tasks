@@ -1,7 +1,5 @@
 import React from "react";
 import { Link, Switch, Route } from "react-router-dom";
-import Home from "../../navigation/home-page/Home";
-import ItemDeteils from "../../navigation/item-deteils/ItemDeteils";
 import "./Header.css";
 
 class Header extends React.Component {
