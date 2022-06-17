@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import useAxios from "axios-hooks";
 
 function App() {
+  const [{ data, loading, error }, refetch] = useAxios(
+    "http://localhost:4040/users"
+  );
+  const [users, setUsers] = useState([{}]);
+
+  useEffect(() => {
+    if (data !== undefined) {
+      setUsers(data);
+    }
+  }, [data]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+      {users.map((item, i) => (
+        <p key={item.id}>
+          {item.name} | amount- {item.amount} | credit-{item.credit}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      ))}
     </div>
   );
 }
